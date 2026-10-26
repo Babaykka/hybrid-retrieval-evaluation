@@ -1,85 +1,78 @@
 # Hybrid Retrieval Evaluation
 
-An engineering and research communication project on controlled candidate pools,
-manual relevance judgments, reciprocal rank fusion, and saved-score evaluation on
-MS MARCO. The collection preserves the development sources, calculations,
-evaluation results, manuscript revisions, presentation builders, and significant
-delivery versions.
+Evaluation of lexical, dense and hybrid retrieval on MS MARCO with controlled
+candidate pools, manual relevance judgments and reciprocal rank fusion (RRF).
+The repository contains the development notebook, maintained evaluation scripts,
+saved results, manuscript sources and the final conference presentation.
 
 ![Presentation preview](docs/presentation-preview.png)
 
-## Explore the work
+## Explore the project
 
-| Material | Entry point |
+| Material | Files |
 | --- | --- |
-| Checked research manuscript | [Russian PDF](delivery_revision/manuscript_ru.pdf) · [English PDF](delivery_revision/manuscript_en.pdf) |
-| Conference presentation | [PDF](DAMDID_2026_Проверено_13-10/DAMDID_2026_Презентация_RU.pdf) · [Editable PowerPoint](DAMDID_2026_Проверено_13-10/DAMDID_2026_Презентация_RU.pptx) |
-| Recalculation code | [Manual evaluation](revision_2026/manual_eval.py) · [Full saved-score evaluation](revision_2026/fullset_eval.py) |
-| Numerical results | [Manual analysis](revision_2026/results/manual_summary.json) · [Full analysis](revision_2026/results/fullset_summary.json) |
-| Editorial manuscript versions | [Version guide](АКТУАЛЬНАЯ_ВЕРСИЯ.md) |
+| Retrieval and training development | [Jupyter notebook](msmarco_final.ipynb) |
+| Evaluation code and commands | [revision_2026](revision_2026/README.md) |
+| Saved numerical results | [revision_2026/results](revision_2026/results/) |
+| Manuscripts with recomputed results | [English PDF](delivery_revision/manuscript_en.pdf) · [Russian PDF](delivery_revision/manuscript_ru.pdf) · [LaTeX and build instructions](delivery_revision/README_RU.md) |
+| Latest editorial manuscript | [Version notes and sources](original_based_2026/README.md) |
+| Final presentation | [PDF](DAMDID_2026_Проверено_13-10/DAMDID_2026_Презентация_RU.pdf) · [PowerPoint](DAMDID_2026_Проверено_13-10/DAMDID_2026_Презентация_RU.pptx) |
+| Presentation speech | [DOCX](DAMDID_2026_Проверено_13-10/DAMDID_2026_Текст_выступления_RU.docx) |
 
-The manual evaluation contains 1,179 queries and 33,667 query–document pairs.
-The full saved-score audit covers 101,093 queries and 45,647,587 scores. Results
-compare BM25, E5, BGE, reranking, and reciprocal rank fusion under explicitly
-defined relevance labels and candidate pools. The preserved outputs include
-query-level comparisons, uncertainty estimates, tables, figures, and presentation
-chart data.
+The manual analysis covers **1,179 queries and 33,667 query–document pairs**.
+The full saved-score analysis covers **101,093 queries and 45,647,587 scores**.
+Saved outputs include query-level metrics, paired uncertainty estimates,
+bootstrap replicates, labels and query splits.
 
-## What is preserved
+## Run the analysis tools
 
-- `revision_2026/`: query-level evaluation, uncertainty calculations, tables,
-  figures, checked result files, and reproducibility scripts.
-- `original_based_2026/` and `editorial_source_revision*`: editorial manuscript
-  versions and their source/build scripts.
-- `presentation_2026/`: slide builders, chart data, speaker scripts, source
-  figures, presentation versions, and development reviews.
-- `DAMDID/`, `delivery_*`, and the dated packages: manuscript and presentation
-  versions retained with their supporting sources.
-- The historical notebook and the research-data release: the original pipeline,
-  saved runs/scores, project judgments, annotation categories, and derived arrays.
+Use Python 3.12 or newer in a separate environment:
 
-This GitHub repository preserves the development sources, documents, and retained
-result files. The full research-data archive and additional large arrays are
-distributed through [the project Telegram channel](https://t.me/zzakazzy).
-`RELEASE_ARTIFACTS.json` maps the additional arrays back to their repository paths.
-The Telegram archive index supplies the complete part manifest and restoration
-instructions; the archive is complete only after every listed part and manifest
-has been posted. The large research-data archive is not hosted in GitHub.
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python revision_2026/fullset_eval.py --self-test
+```
 
-## Interpretation of the results
+The included results are sufficient to rebuild the manuscript tables and figures:
 
-The editorial manuscript and the checked recomputation are distinct versions.
-Some editorial versions intentionally retain the earlier reported values. Use
-the saved files in `revision_2026/results/` and the corresponding evaluation
-code for the checked analysis; do not combine values from different versions.
+```sh
+.venv/bin/python revision_2026/build_tables.py
+.venv/bin/python revision_2026/make_figures.py
+```
 
-The recomputation reuses saved retrieval runs, judge scores, labels, and a fixed
-threshold. It does not establish a recovered training checkpoint or a fresh
-training/inference run. Bootstrap intervals describe uncertainty conditional on
-those saved runs, scores, and labels. The original human annotation procedure
-and inherited label encoding retain the limitations described in the sources.
+These commands write to `delivery_revision/`. See the
+[evaluation guide](revision_2026/README.md) for arguments and recomputation from
+the research archive, and [ENVIRONMENT.md](ENVIRONMENT.md) for document builds.
+The notebook retains its development code with saved cell outputs cleared;
+its model and data dependencies are listed within the notebook.
 
-## Data and restoration
+## Reading the results
 
-The original upstream MS MARCO corpus, queries, and official qrels are obtained
-from [the official download page](https://microsoft.github.io/msmarco/Datasets).
-Their [source terms](https://microsoft.github.io/msmarco/Notice.html) continue to
-apply. Raw copied text is replaced by upstream acquisition/hydration instructions
-where stated in the research-data manifest. Project-generated numerical results
-remain part of the full Telegram archive; their size is not a reason for omission.
+Use `revision_2026/results/` and `delivery_revision/` for the checked evaluation.
+Systems share the same pool-based IDCG and query set; queries with zero gain
+remain in the averages. The evaluation reuses saved retrieval runs, judge scores
+and labels. It does not represent a new training run or a recovered checkpoint.
+See the [methodological notes](delivery_revision/AUTHOR_NOTES_RU.md) for scope
+and remaining interpretation limits.
 
-`SOURCE_COVERAGE.json` records the staged source decisions. Runtime environments,
-Office profiles, operating-system metadata, reproducible compilation auxiliaries,
-and separately available third-party reference papers are excluded explicitly.
-Personal author/contact fields and client identifiers have been removed from the
-public version. External scientific references and third-party license notices
-remain with their sources.
+`original_based_2026/source/` is a distinct editorial version that retains earlier
+reported numerical values. It is preserved as the latest version of that text,
+and must be distinguished from the recomputed analysis. Its
+[version notes](original_based_2026/ПОЯСНЕНИЕ.md) explain the differences.
 
-Start with [RESTORE.md](RESTORE.md) and [ENVIRONMENT.md](ENVIRONMENT.md). An
-archive upload is not evidence that training or all historical builds were rerun.
+## Data and full archive
 
-## Reusable archive workflow
+The [Telegram index](https://t.me/zzakazzy/37) contains the complete 25-part
+research-data archive, additional result arrays and the full development snapshot.
+The [part manifest](data/retrieval-data.parts.json) lists the exact links, sizes
+and SHA-256 values. Follow [RESTORE.md](RESTORE.md) to obtain the matching data.
 
-The accompanying [Project Vault skill](tools/project-vault/README.md) supports
-closing, anonymizing, finding, and restoring future projects. It is a separate
-utility; its public package contains no private client catalog or credentials.
+The original upstream MS MARCO corpus, queries and official qrels are obtained
+from their source using [tools/fetch_upstream.py](tools/fetch_upstream.py).
+[MS MARCO source terms](https://microsoft.github.io/msmarco/Notice.html) continue
+to apply. Scientific references and bundled template notices are retained.
+
+The current branch contains one canonical copy of each retained project component.
+Earlier deliveries and intermediate builds are available in the
+[dated full snapshot](ARCHIVE.md).

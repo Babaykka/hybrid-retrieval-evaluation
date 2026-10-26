@@ -17,7 +17,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
-OUTPUT = ROOT / "package" / "figures"
+OUTPUT = ROOT.parent / "delivery_revision" / "figures"
 # Keep Matplotlib's generated cache within this task's exclusive write scope.
 os.environ.setdefault("MPLCONFIGDIR", str(ROOT / ".matplotlib"))
 

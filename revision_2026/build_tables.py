@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument("--package", type=Path, default=ROOT / "package")
+parser.add_argument("--package", type=Path, default=ROOT.parent / "delivery_revision")
 OUT = parser.parse_args().package
 M = json.loads((ROOT / "results/manual_summary.json").read_text())
 F = json.loads((ROOT / "results/fullset_summary.json").read_text())

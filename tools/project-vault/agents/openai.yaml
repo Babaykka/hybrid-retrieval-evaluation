@@ -1,4 +1,0 @@
-interface:
-  display_name: "Project Vault"
-  short_description: "Обезличивание и архив законченных проектов"
-  default_prompt: "Используй $project-vault, чтобы сохранить законченный проект, подготовить публикацию и проверить восстановление."

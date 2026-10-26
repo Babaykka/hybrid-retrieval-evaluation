@@ -1,0 +1,268 @@
+{
+  "schema_version": 1,
+  "project_id": "hybrid-retrieval-evaluation",
+  "status": "uploaded",
+  "channel": "https://t.me/zzakazzy",
+  "archive_name": "retrieval-data.zip",
+  "format": "ZIP64",
+  "archive_size": 26770669571,
+  "archive_sha256": "b63423b94b75126a1ccccac898dacd48244e140791c7507ea900a8c4f0699141",
+  "part_bytes": 1073741824,
+  "parts_count": 25,
+  "parts_uploaded": 25,
+  "telegram_readback_verified": false,
+  "restore_verified": false,
+  "verification_scope": "Publication URLs are observed; SHA-256 values describe the prepared files. Telegram download/readback and full restoration have not been verified.",
+  "parts": [
+    {
+      "filename": "retrieval-data.zip.part001",
+      "number": 1,
+      "offset": 0,
+      "size": 1073741824,
+      "sha256": "faac0d9004cf2e253a52a2397c5729b89f76749a38f7122c9c526b41ea34b9d2",
+      "telegram_url": "https://t.me/zzakazzy/5",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part002",
+      "number": 2,
+      "offset": 1073741824,
+      "size": 1073741824,
+      "sha256": "2d59d9203b3bb4d3b2ee24c5b0c9a9e796322c9492bb2cc513d3a33e96e32a3d",
+      "telegram_url": "https://t.me/zzakazzy/8",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part003",
+      "number": 3,
+      "offset": 2147483648,
+      "size": 1073741824,
+      "sha256": "a7cae5bacf69ba745ed0f4af6e047367818c0eb120835f563251fbe868ab47df",
+      "telegram_url": "https://t.me/zzakazzy/10",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part004",
+      "number": 4,
+      "offset": 3221225472,
+      "size": 1073741824,
+      "sha256": "06bce54ec00674b0bcc3df914f7c39691ec31b78975168a326b455718b745281",
+      "telegram_url": "https://t.me/zzakazzy/11",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part005",
+      "number": 5,
+      "offset": 4294967296,
+      "size": 1073741824,
+      "sha256": "48e829f9a7b445cddc146c2e6b55883a870714c9fc88ec7f54f179b97d213ae0",
+      "telegram_url": "https://t.me/zzakazzy/12",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part006",
+      "number": 6,
+      "offset": 5368709120,
+      "size": 1073741824,
+      "sha256": "827a47a364042ad6620d5ff3de0b965acba75d63ecdcc48ed170028d7273895f",
+      "telegram_url": "https://t.me/zzakazzy/13",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part007",
+      "number": 7,
+      "offset": 6442450944,
+      "size": 1073741824,
+      "sha256": "3fac33c9d7f9e7227b771868f801227f04cde6b4f184fa53fe5a5d1cc96e2b3d",
+      "telegram_url": "https://t.me/zzakazzy/14",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part008",
+      "number": 8,
+      "offset": 7516192768,
+      "size": 1073741824,
+      "sha256": "7e8db265fe68f5de875e8544731b5a784704f991cf4e5f8d516c4f6c7a157662",
+      "telegram_url": "https://t.me/zzakazzy/15",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part009",
+      "number": 9,
+      "offset": 8589934592,
+      "size": 1073741824,
+      "sha256": "957df3bef9b9189cb6d3248c4002883a6580cc58dd4094a8ba7e14cad49a7079",
+      "telegram_url": "https://t.me/zzakazzy/16",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part010",
+      "number": 10,
+      "offset": 9663676416,
+      "size": 1073741824,
+      "sha256": "458894351b8072e2a73841326ddb25a26aa4d95a209fad0fad7e14560ffeedbb",
+      "telegram_url": "https://t.me/zzakazzy/17",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part011",
+      "number": 11,
+      "offset": 10737418240,
+      "size": 1073741824,
+      "sha256": "90fdbc95a984cf27f5786253cc67226915b6860b0bd93b2da28fbd118a8094c6",
+      "telegram_url": "https://t.me/zzakazzy/18",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part012",
+      "number": 12,
+      "offset": 11811160064,
+      "size": 1073741824,
+      "sha256": "1b9740c6a0293be3f73b3dc6c7563b4e04a0649dc740c3d0d20f1bac27f9f04a",
+      "telegram_url": "https://t.me/zzakazzy/19",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part013",
+      "number": 13,
+      "offset": 12884901888,
+      "size": 1073741824,
+      "sha256": "0b87e07485d2957dbddacbb53a95e407bae53b081af5175fa2e7c2b3aac2a1c5",
+      "telegram_url": "https://t.me/zzakazzy/20",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part014",
+      "number": 14,
+      "offset": 13958643712,
+      "size": 1073741824,
+      "sha256": "4c0feeae092da5c343fb8feb327d754e1cf1a2df5810f7c09c69a2f4993b335f",
+      "telegram_url": "https://t.me/zzakazzy/21",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part015",
+      "number": 15,
+      "offset": 15032385536,
+      "size": 1073741824,
+      "sha256": "236fd5793a20f8d9f44dd93073b070920e0eb0161550f0c12b13f02439f9e0cf",
+      "telegram_url": "https://t.me/zzakazzy/22",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part016",
+      "number": 16,
+      "offset": 16106127360,
+      "size": 1073741824,
+      "sha256": "987123b9e0ff009cf6c6de9d3e2ee475807d6204ea8dc79333cb63e3d3f39d1e",
+      "telegram_url": "https://t.me/zzakazzy/23",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part017",
+      "number": 17,
+      "offset": 17179869184,
+      "size": 1073741824,
+      "sha256": "c4066f5ef756100f0935acf3956104750bde0463ce841e571d0ceeafc9f71893",
+      "telegram_url": "https://t.me/zzakazzy/24",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part018",
+      "number": 18,
+      "offset": 18253611008,
+      "size": 1073741824,
+      "sha256": "efd200ef5fd2f976319de7cfaa4447a724c629e00d33af8861a6f810de1205d4",
+      "telegram_url": "https://t.me/zzakazzy/25",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part019",
+      "number": 19,
+      "offset": 19327352832,
+      "size": 1073741824,
+      "sha256": "d649054146574929dd4883e62dd2fbb7e7bfc0c1a52aa7eb88502f467f1da61e",
+      "telegram_url": "https://t.me/zzakazzy/26",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part020",
+      "number": 20,
+      "offset": 20401094656,
+      "size": 1073741824,
+      "sha256": "0510164ae6094a8f7b65d9584fbb81e2a5c9ec08d42d2f96ea08598b4802bc27",
+      "telegram_url": "https://t.me/zzakazzy/27",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part021",
+      "number": 21,
+      "offset": 21474836480,
+      "size": 1073741824,
+      "sha256": "d04cdec1336f8f1e52c8625d7bc92929f8bcd178b067bfa18ac491cdac5906b5",
+      "telegram_url": "https://t.me/zzakazzy/28",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part022",
+      "number": 22,
+      "offset": 22548578304,
+      "size": 1073741824,
+      "sha256": "d8a8e6c1daa9d15f37d91e1bc7d11aa0dc28dee752ef1b0baa4ee3476a84f154",
+      "telegram_url": "https://t.me/zzakazzy/29",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part023",
+      "number": 23,
+      "offset": 23622320128,
+      "size": 1073741824,
+      "sha256": "c86a6f6cabcd9e9f96d0bfab285f2d3a4278cbbc8b28926eb27a482bed9f3ac8",
+      "telegram_url": "https://t.me/zzakazzy/30",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part024",
+      "number": 24,
+      "offset": 24696061952,
+      "size": 1073741824,
+      "sha256": "b85024c6f3b7dba62882d309e544cf2e917344cf8e9f220c34f7a74bd281d03f",
+      "telegram_url": "https://t.me/zzakazzy/31",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    },
+    {
+      "filename": "retrieval-data.zip.part025",
+      "number": 25,
+      "offset": 25769803776,
+      "size": 1000865795,
+      "sha256": "074d1854a9eb710d1a13e6333ff54bb795e377e33843dd2976aff38fb8a849d4",
+      "telegram_url": "https://t.me/zzakazzy/32",
+      "public_post_confirmed": true,
+      "telegram_readback_verified": false
+    }
+  ]
+}

@@ -1,21 +1,22 @@
-# Working environment
+# Environment
 
-Run maintained analysis scripts from the repository root in a separate Python
-environment. The analysis sources use NumPy, SciPy, pandas, matplotlib, and ijson;
-install only the modules needed by the command being run. Historical notebooks
-also record the retrieval/model dependencies and require the appropriate upstream
-data and model access. No training checkpoint is claimed to be present.
+The maintained evaluation scripts use Python 3.12 or newer with the versions in
+[requirements.txt](requirements.txt): NumPy, SciPy, pandas, matplotlib and ijson.
+Install them in a virtual environment as shown in the root README. Rebuilding
+tables and figures needs only the saved files in `revision_2026/results/`.
+Recomputing the evaluation also needs the matching research-data ZIP; manual
+evaluation additionally needs the exact upstream small-development qrels.
 
-Document builders use python-docx, pdfplumber, PyMuPDF, and lxml where imported.
-LaTeX manuscripts require a compatible TeX distribution and their local class/
-bibliography files. Set `LATEX_COMPILE_HELPER` if a historical packaging script
-uses an external compilation helper; otherwise compile the manuscript with the
-corresponding TeX engine directly.
+The notebook records the original retrieval, model-training and inference
+development. Its additional dependencies and hardware requirements are described
+in its cells. Saved notebook outputs are cleared. No model checkpoint or fresh
+training result is supplied by the maintained evaluation scripts.
 
-Presentation builders retain their source and use Node.js, `@oai/artifact-tool`,
-and presentation helper utilities. Configure `PRESENTATIONS_SKILL` and, where
-needed, `RUNTIME_NODE_MODULES` for that optional toolchain. Set `PROJECT_ROOT` to
-this checkout, or run builders from the repository root; `PYTHON` can select a
-Python executable. The preserved PPTX/PDF files remain readable without that
-authoring toolchain. A new machine must supply compatible dependencies rather
-than reuse any archived local virtual environment or Office profile.
+The manuscript directories contain the necessary local TeX inputs and figures.
+Use XeLaTeX and latexmk from TeX Live or MacTeX, Computer Modern Unicode fonts,
+and the packages named in the document preambles. The per-manuscript README files
+give the build commands. Bibliography entries are included in the TeX sources;
+the bundled class and bibliography-style files retain their original notices.
+
+The final presentation is supplied as editable PPTX and PDF; the speech is DOCX.
+Old rendering caches and intermediate slide builds are outside the current tree.
