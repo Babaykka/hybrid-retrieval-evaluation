@@ -1,0 +1,126 @@
+--- original/manuscript_en.tex
++++ edited/manuscript_en.tex
+@@ -47,7 +47,7 @@
+ 
+ \maketitle
+ \begin{abstract}
+-This paper studies how additional manual relevance annotation changes the evaluation of retrieval models on MS MARCO, where the original annotation usually provides only one explicitly relevant passage per query. We analyze a manually annotated subset of 1,179 queries and 33,667 query-document pairs, comparing the original MS MARCO labels, extended human labels, and labels produced by a compact cross-encoder judge. The judge is then applied to a larger set of queries to study pseudo-relevance labels under controlled pooling depths. Manual re-annotation increases the average number of relevant documents per query from 1.07 to 17.47 and yields statistically significant gains in NDCG@10 for all considered ranking sources, for example from 0.597 to 0.877 for BM25 and from 0.701 to 0.967 for E5. On the full set, high pseudo-relevance density appears only after the judge is applied to a large pooled set built from the top BM25, E5, and BGE results. This value therefore cannot be interpreted without specifying the candidate pooling protocol.
++This paper studies how additional manual relevance annotation changes the evaluation of retrieval models on MS MARCO, where the original annotation usually provides only one explicitly relevant passage per query. We analyze a manually annotated subset of 1,179 queries and 33,667 query-document pairs, comparing the original MS MARCO labels, extended human labels, and labels produced by a compact cross-encoder judge. Here, deep re-annotation means judging multiple candidate answers within a defined pool, rather than assuming that the original positive passage exhausts the relevant answers. The judge is then applied to a larger set of queries to study pseudo-relevance labels under controlled pooling depths. Manual re-annotation increases the average number of relevant documents per query from 1.07 to 17.47 and yields statistically significant gains in NDCG@10 for all considered ranking sources, for example from 0.597 to 0.877 for BM25 and from 0.701 to 0.967 for E5. On the full set, high pseudo-relevance density appears only after the judge is applied to a large pooled set built from the top BM25, E5, and BGE results. This value therefore cannot be interpreted without specifying the candidate pooling protocol.
+ 
+ \keywords{Information retrieval \and MS MARCO \and relevance judgments \and re-annotation \and pseudo-relevance labels \and pooling \and reciprocal rank fusion}
+ \end{abstract}
+@@ -56,9 +56,17 @@
+ 
+ Modern neural information retrieval systems require large collections of queries, documents, and relevance judgments. One of the most influential collections of this kind is MS MARCO, built from real Bing search queries and widely used for passage and document ranking \cite{bajaj2016msmarco}. The mMARCO dataset, its multilingual extension, includes Russian \cite{bonifacio2022mmarco}, and the Russian portion is used in RusBEIR, a benchmark for Russian information retrieval \cite{2025rusbeir}.
+ 
++MS MARCO is one of several search-provider datasets, not a universal sample of information needs. Google's Natural Questions contains real search queries with human answer annotations on Wikipedia pages \cite{kwiatkowski2019naturalquestions}. Yahoo!'s Learning to Rank Challenge released two sets of query--document feature vectors and graded relevance labels without query or document text \cite{chapelle2011yahoo}. Yandex's Personalized Web Search Challenge released session and click logs with anonymized identifiers rather than readable queries and documents \cite{yandex2013personalized}. These are useful counterparts in search research, but their tasks and released representations differ from passage ranking.
++
++We focus on MS MARCO because its accessible texts, sparse human judgments, established evaluation tools, and pretrained models support comparisons with prior work. The sparse judgments also provide a direct setting for studying additional annotation. This choice does not establish universality: provider-specific sampling, language, query intent, and document domain may affect transfer. Differences between countries or social groups are not measured in this study.
++
+ A central property of MS MARCO is the sparsity of its original relevance judgments. In the passage ranking task, most queries are associated with a single positive passage that may answer the user's question \cite{msmarco_datasets}. The standard file containing query-document relevance labels is commonly called qrels, short for query relevance judgments. This design is practical for large-scale training, but it can be incomplete for evaluation: other relevant passages may exist in the corpus but remain unjudged. A retrieval model may therefore return a useful document and still receive no credit because the document is absent from the qrels file.
+ 
+ This incompleteness matters especially when comparing systems of different types. Lexical methods such as BM25 rely on term matching \cite{robertson2009bm25}; dense retrievers such as E5 and BGE use separate vector representations of queries and documents \cite{wang2022e5,xiao2023cpack}; and cross-encoders score query-document pairs jointly \cite{nogueira2019bert}. These methods may retrieve different relevant documents. Re-evaluating MS MARCO after additional annotation is therefore not merely a matter of increasing absolute scores; it can also change the comparative picture between retrieval approaches.
++
++By \emph{deep re-annotation} we mean extending relevance judgments across the candidate documents in a defined pool. ``Deep'' refers to annotation coverage, not neural-network depth or repeated training. It does not mean that the entire corpus has been exhaustively judged. For example, a query about why a liquid's boiling point increases may have several passages explaining the addition of salt. If only one passage is in the original qrels, another correct explanation receives zero gain until it is judged. Section~\ref{sec:example} gives an actual example with passage identifiers and before/after labels.
++
++The retrieval rankings are held fixed when comparing original and human labels. Thus, an increase in measured NDCG after annotation does not mean that a retrieval model itself has improved. It means that its existing output is evaluated against more complete judgments. A second part of the study uses a learned judge to extend label coverage to larger candidate pools. These predictions are called \emph{pseudo-labels} to distinguish them from human judgments.
+ 
+ We study this problem at two levels. First, we analyze a manual subset for which additional human relevance judgments are available. This makes it possible to compare the original MS MARCO labels with denser human labels inside the same candidate pool. Second, we study a larger query set using a judge model: a binary classifier that receives a query-document pair and returns a relevance score. This judge is used because manually annotating the full set is impractical.
+ 
+@@ -91,10 +99,12 @@
+ 
+ \subsection{Source Collection}
+ 
+-The source material is MS MARCO Passage Ranking. It contains user queries, a corpus of 8,841,823 short passages, and qrels files, i.e., query relevance judgment files that specify documents considered relevant to the queries. The original development-set qrels contain 7,437 positive pairs for 6,980 queries. The full-set candidate-pool protocol considered in this paper is larger: it uses 101,093 queries for which saved BM25, E5, and BGE rankings are available for pseudo-labeling.
++The source material is MS MARCO Passage Ranking. It contains user queries, a corpus of 8,841,823 short passages, and qrels files, i.e., query relevance judgment files that specify documents considered relevant to the queries. The original development-set qrels contain 7,437 positive pairs for 6,980 queries. The manual subset contains 1,179 queries and 33,667 distinct query--passage pairs, with 28.56 candidates per query on average and a maximum of 63. The full-set candidate-pool protocol considered in this paper is larger: it uses 101,093 queries for which saved BM25, E5, and BGE rankings are available for pseudo-labeling.
+ 
+ The issue with the original labels is not that the positive documents are necessarily wrong, but that they often do not exhaust all acceptable answers in the corpus. If a query asks which county a place belongs to, the corpus may contain multiple passages that correctly state the same county. The original qrels may include only one of them. A system that retrieves another correct passage is then penalized because that passage is unjudged.
+ 
++The manual pool was assembled by combining query-based retrieval results with auxiliary candidate-selection channels. Each query has ten entries in the saved BM25, E5, and BGE rankings. The annotation data also retain the auxiliary channels E5-rerank and E5-based similarity to a known relevant answer, as part of the reference-assisted annotation procedure. The similarity signal has access to answer information unavailable to ordinary query-only retrieval. They contribute candidates beyond the three query-only lists. In particular, 6,258 pairs have no score in BM25, E5, BGE, or E5-rerank; 35 pools contain more than 40 documents. Thus, the annotation pool includes additional candidates beyond the four named top-ten lists.
++
+ \subsection{Pooling Procedure}
+ 
+ To study missing judgments, we constructed a candidate pool for selected queries using pooling. The pool included top-ranked documents from BM25, a lexical retrieval baseline; E5 and BGE, dense bi-encoder retrievers; and an auxiliary E5-based signal that measures the similarity of a candidate to the known relevant answer for the same query. The last source is not an ordinary search model: unlike a deployed retrieval system, it uses the original MS MARCO relevant passage in addition to the query. We therefore use it only to expand the manual annotation pool, not as a full-set retrieval model.
+@@ -102,6 +112,7 @@
+ For each query, the top 10 documents from each source were merged and duplicates were removed. Human assessors then judged the resulting query-document pairs. During annotation, the assessor saw the query, the candidate document, and the original relevant MS MARCO answer. This setup anchors the new judgments to the same interpretation of the information need as the original annotation.
+ 
+ \subsection{Dataset Characteristics}
++\label{sec:example}
+ 
+ The manual subset contains 1,179 queries and 33,667 query-document pairs, with an average of 28.56 candidate documents per query. Inside this pool, the original MS MARCO qrels contain 1,257 positive pairs, or 1.07 relevant documents per query. After manual re-annotation, the number of positive pairs increases to 20,597, or 17.47 relevant documents per query. Thus, the new evaluation set does not replace MS MARCO; rather, it shows how strongly qrels density changes within a deliberately constructed pool.
+ 
+@@ -145,6 +156,8 @@
+ 
+ Table~\ref{tab:main} shows that additional annotation changes both qrels density and measured ranking quality. The auxiliary ``E5 + seed answer'' signal has the highest value on the manual pool, as expected, because it uses the original relevant document. It should therefore not be interpreted as a deployable retrieval system.
+ 
++\input{example_en.tex}
++
+ \section{Task Formulation and Experimental Protocol}
+ 
+ Let $\mathcal{Q}$ be a set of queries, $\mathcal{D}$ the document corpus, and $\mathcal{M}$ a set of ranking systems. For a query $q \in \mathcal{Q}$ and a system $m \in \mathcal{M}$, let $\mathrm{TopK}_m(q)$ denote the set of the first $K$ documents in the ranking returned by $m$. The pooled candidate set is
+@@ -365,21 +378,23 @@
+ \newblock \textit{MS MARCO: A Human Generated MAchine Reading COmprehension Dataset}.
+ \newblock arXiv preprint arXiv:1611.09268, 2016.
+ 
++\bibitem{bonifacio2022mmarco}
++L.~Bonifacio, V.~Jeronymo, H.~Queiroz Abonizio, I.~Campiotti, M.~Fadaee, R.~Lotufo, R.~Nogueira.
++\newblock \textit{mMARCO: A Multilingual Version of MS MARCO Passage Ranking Dataset}.
++\newblock arXiv preprint arXiv:2108.13897, 2021.
++
++\bibitem{2025rusbeir}
++G.~, M.~Tikhomirov, E.~Kozhevnikov, M.~Kornilov, N.~.
++\newblock \textit{Building Russian Benchmark for Evaluation of Information Retrieval Models}.
++\newblock Computational Linguistics and Intellectual Technologies, 2025.
++
++\input{additional_references.tex}
++
+ \bibitem{msmarco_datasets}
+ Microsoft.
+ \newblock \textit{MS MARCO datasets}.
+ \newblock \url{https://microsoft.github.io/msmarco/}, accessed 2026.
+ 
+-\bibitem{bonifacio2022mmarco}
+-L.~Bonifacio, V.~Jeronymo, H.~Queiroz Abonizio, I.~Campiotti, M.~Fadaee, R.~Lotufo, R.~Nogueira.
+-\newblock \textit{mMARCO: A Multilingual Version of MS MARCO Passage Ranking Dataset}.
+-\newblock arXiv preprint arXiv:2108.13897, 2021.
+-
+-\bibitem{2025rusbeir}
+-G.~, M.~Tikhomirov, E.~Kozhevnikov, M.~Kornilov, N.~.
+-\newblock \textit{Building Russian Benchmark for Evaluation of Information Retrieval Models}.
+-\newblock Computational Linguistics and Intellectual Technologies, 2025.
+-
+ \bibitem{robertson2009bm25}
+ S.~E. Robertson, H.~Zaragoza.
+ \newblock \textit{The Probabilistic Relevance Framework: BM25 and Beyond}.
+@@ -400,6 +415,11 @@
+ \newblock \textit{Passage Re-ranking with BERT}.
+ \newblock arXiv preprint arXiv:1901.04085, 2019.
+ 
++\bibitem{cormack2009rrf}
++G.~V. Cormack, C.~L.~A. Clarke, S.~B{\"u}ttcher.
++\newblock \textit{Reciprocal Rank Fusion outperforms Condorcet and Individual Rank Learning Methods}.
++\newblock In \textit{Proceedings of the 32nd Annual International ACM SIGIR Conference on Research and Development in Information Retrieval}, pp.~758--759, 2009.
++
+ \bibitem{wang2020minilm}
+ W.~Wang, F.~Wei, L.~Dong, H.~Bao, N.~Yang, M.~Zhou.
+ \newblock \textit{MiniLM: Deep Self-Attention Distillation for Task-Agnostic Compression of Pre-Trained Transformers}.
+@@ -415,11 +435,6 @@
+ \newblock \textit{TREC: Experiment and Evaluation in Information Retrieval}.
+ \newblock MIT Press, 2005.
+ 
+-\bibitem{cormack2009rrf}
+-G.~V. Cormack, C.~L.~A. Clarke, S.~B{\"u}ttcher.
+-\newblock \textit{Reciprocal Rank Fusion outperforms Condorcet and Individual Rank Learning Methods}.
+-\newblock In \textit{Proceedings of the 32nd Annual International ACM SIGIR Conference on Research and Development in Information Retrieval}, pp.~758--759, 2009.
+-
+ \bibitem{bruch2023fusion}
+ S.~Bruch, S.~Gai, A.~Ingber.
+ \newblock \textit{An Analysis of Fusion Functions for Hybrid Retrieval}.
+@@ -437,4 +452,7 @@
+ 
+ \end{thebibliography}
+ 
++\clearpage
++\input{reviewer_responses_en.tex}
++
+ \end{document}

@@ -1,0 +1,71 @@
+{
+  "audit": {
+    "bge": {
+      "max_retained": 200,
+      "min_retained": 200,
+      "queries_missing": 0,
+      "queries_present": 101093,
+      "queries_short_top10": 0,
+      "queries_short_top200": 0,
+      "rows": 20218600,
+      "rows_top200": 20218600
+    },
+    "bm25": {
+      "max_retained": 200,
+      "min_retained": 0,
+      "queries_missing": 3,
+      "queries_present": 101090,
+      "queries_short_top10": 4,
+      "queries_short_top200": 29,
+      "rows": 20214907,
+      "rows_top200": 20214907
+    },
+    "e5": {
+      "max_retained": 200,
+      "min_retained": 200,
+      "queries_missing": 0,
+      "queries_present": 101093,
+      "queries_short_top10": 0,
+      "queries_short_top200": 0,
+      "rows": 20218600,
+      "rows_top200": 20218600
+    }
+  },
+  "depth": 200,
+  "expected_queries": 101093,
+  "hashes": {
+    "bge": {
+      "sha256_uncompressed": "13f3f837b2e86c86bb3ee955cbe5310b6d24d6b4ebc67410ee0dca90a5927685",
+      "streamed_bytes": 699123502
+    },
+    "bm25": {
+      "sha256_uncompressed": "c9bf5c3fa102ca9dc90f71699f17caa1bd96dcc8aad6b8f3e51df3f906f7760a",
+      "streamed_bytes": 726103595
+    },
+    "e5": {
+      "sha256_uncompressed": "c94d6d91cd90b0358879907cbd23cffb191329b495df0df70f1356d137aa191a",
+      "streamed_bytes": 678813348
+    }
+  },
+  "inputs": {
+    "bge": {
+      "compressed_size": 233846874,
+      "crc32": "205dbcf3",
+      "name": "phd2/msmarco/run_files/bge.run",
+      "uncompressed_size": 699123502
+    },
+    "bm25": {
+      "compressed_size": 228900863,
+      "crc32": "f017ca30",
+      "name": "phd2/msmarco/run_files/bm25.run",
+      "uncompressed_size": 726103595
+    },
+    "e5": {
+      "compressed_size": 227882170,
+      "crc32": "47af7a75",
+      "name": "phd2/msmarco/run_files/e5.run",
+      "uncompressed_size": 678813348
+    }
+  },
+  "schema": 1
+}

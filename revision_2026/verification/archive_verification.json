@@ -1,0 +1,17 @@
+{
+  "zip_integrity": true,
+  "files_verified": 71,
+  "regeneration_exact": true,
+  "languages": {
+    "en": {
+      "pages": 15,
+      "text_matches": true,
+      "compile": "passed"
+    },
+    "ru": {
+      "pages": 17,
+      "text_matches": true,
+      "compile": "passed"
+    }
+  }
+}

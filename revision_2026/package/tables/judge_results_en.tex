@@ -1,0 +1,14 @@
+\begin{table}[t]
+\caption{Judge agreement. The base validation AUC is the recorded training baseline; fine-tuned metrics are recomputed from saved scores. P: precision; R: recall.}
+\label{tab:judge-results}
+\centering\small
+\begin{tabularx}{\textwidth}{@{}Lrrrrrr@{}}
+\toprule
+Model / subset & Queries & Pairs & AUC & F1 & P & R \\
+\midrule
+Base / validation & 177 & 5\,122 & 0.865 & -- & -- & -- \\
+Fine-tuned / validation & 177 & 5\,122 & 0.908 & 0.868 & 0.829 & 0.912 \\
+Fine-tuned / test & 177 & 5\,002 & 0.907 & 0.875 & 0.851 & 0.902 \\
+\bottomrule
+\end{tabularx}
+\end{table}

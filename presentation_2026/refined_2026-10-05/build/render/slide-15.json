@@ -1,0 +1,266 @@
+{
+  "schema": "openai.presentation.layout/v5",
+  "unit": "px",
+  "slide": {
+    "id": "sl/svmgmz",
+    "index": 14,
+    "layout": {
+      "id": "ly/udobyxwn",
+      "name": "Title Slide"
+    },
+    "backgroundColor": "rgba(255,255,255,1)",
+    "position": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "elements": [
+    {
+      "id": "sh/0bapsfmd",
+      "kind": "textbox",
+      "name": "Что проверено, а что ещё нет",
+      "position": {
+        "left": 64,
+        "top": 49,
+        "width": 1152,
+        "height": 106
+      },
+      "text": "Что проверено, а что ещё нет",
+      "style": {
+        "fontSize": 44,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/fq18za58",
+      "kind": "textbox",
+      "name": "15",
+      "position": {
+        "left": 1104,
+        "top": 681,
+        "width": 112,
+        "height": 22
+      },
+      "text": "15",
+      "style": {
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#51646A",
+        "alignment": "right"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/eps7q54n",
+      "kind": "textbox",
+      "name": "Проверки устойчивости",
+      "position": {
+        "left": 64,
+        "top": 172,
+        "width": 540,
+        "height": 43
+      },
+      "text": "Проверки устойчивости",
+      "style": {
+        "fontSize": 31,
+        "typeface": "Arial",
+        "color": "#007D76",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/pg3q5kna",
+      "kind": "textbox",
+      "name": "1 156 запросов",
+      "position": {
+        "left": 64,
+        "top": 250,
+        "width": 540,
+        "height": 49
+      },
+      "text": "1 156 запросов",
+      "style": {
+        "fontSize": 39,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/ofa9wfmp",
+      "kind": "textbox",
+      "name": "После исключения 23 проблемных:\nпорядок систем с",
+      "position": {
+        "left": 64,
+        "top": 311,
+        "width": 540,
+        "height": 84
+      },
+      "text": "После исключения 23 проблемных:\nпорядок систем сохранён",
+      "style": {
+        "fontSize": 27,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/ne183a54",
+      "kind": "textbox",
+      "name": "99 914 запросов",
+      "position": {
+        "left": 64,
+        "top": 429,
+        "width": 540,
+        "height": 49
+      },
+      "text": "99 914 запросов",
+      "style": {
+        "fontSize": 39,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/2dsrup4j",
+      "kind": "textbox",
+      "name": "Без всех ручных запросов:\nзнаки различий RRF − E",
+      "position": {
+        "left": 64,
+        "top": 490,
+        "width": 540,
+        "height": 90
+      },
+      "text": "Без всех ручных запросов:\nзнаки различий RRF − E5 сохранены",
+      "style": {
+        "fontSize": 27,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/5kzqt0nq",
+      "kind": "textbox",
+      "name": "Границы выводов",
+      "position": {
+        "left": 704,
+        "top": 172,
+        "width": 512,
+        "height": 43
+      },
+      "text": "Границы выводов",
+      "style": {
+        "fontSize": 31,
+        "typeface": "Arial",
+        "color": "#C64F37",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/4jqpkvml",
+      "kind": "textbox",
+      "name": "Ручной пул обогащён\nизвестным ответом",
+      "position": {
+        "left": 704,
+        "top": 252,
+        "width": 512,
+        "height": 78
+      },
+      "text": "Ручной пул обогащён\nизвестным ответом",
+      "style": {
+        "fontSize": 29,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/yd8rmdgf",
+      "kind": "textbox",
+      "name": "Согласие разметчиков\nне измерено",
+      "position": {
+        "left": 704,
+        "top": 370,
+        "width": 512,
+        "height": 78
+      },
+      "text": "Согласие разметчиков\nне измерено",
+      "style": {
+        "fontSize": 29,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/jeh8fyh0",
+      "kind": "textbox",
+      "name": "Один судья; глубокие пулы\nне проверены людьми",
+      "position": {
+        "left": 704,
+        "top": 488,
+        "width": 512,
+        "height": 78
+      },
+      "text": "Один судья; глубокие пулы\nне проверены людьми",
+      "style": {
+        "fontSize": 29,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/kfq9o3yl",
+      "kind": "textbox",
+      "name": "Переносимость на другие модели, языки и домены т",
+      "position": {
+        "left": 64,
+        "top": 642,
+        "width": 1135,
+        "height": 38
+      },
+      "text": "Переносимость на другие модели, языки и домены требует отдельного эксперимента.",
+      "style": {
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#51646A",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    }
+  ]
+}

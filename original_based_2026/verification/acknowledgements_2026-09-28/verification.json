@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "change": "Acknowledgements inserted immediately before the bibliography",
+  "pages": 16,
+  "changed_pdf_pages": [
+    14,
+    15
+  ],
+  "other_source_files_unchanged": true,
+  "unchanged_archive_entries_preserved": true,
+  "sha256": {
+    "original_based_2026/source/manuscript_en.tex": "f733fe56d3162bce03fbe6ed252011d654ca89b8c98802e513388bae8e922422",
+    "delivery_editorial/manuscript_en.pdf": "614c5c943f8d856516c3e35a0d3ed62880fcf4b531809f825be87284dcc4ca6b",
+    "delivery_editorial/LaTeX_sources.zip": "917317caf82b85ea0503d2559c2497031ce088eee4516eb3f7342483a438f57f",
+    "delivery_editorial.zip": "5ed98c7dc769ebabfe3cae3eefeb7b0b54637131a36f8eb0d54f93b3fd2a74eb",
+    "editorial_source_revision.zip": "7385fd9b7dd93c29994416419fb318acc63e8ba5e78d1a18ec9fbe7887f4528e"
+  }
+}

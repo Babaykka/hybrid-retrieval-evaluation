@@ -1,0 +1,76 @@
+{
+  "slides": 13,
+  "body_word_count": 1498,
+  "estimated_seconds": 805,
+  "timing_assumption": "120 words/minute plus 4 seconds per slide, rounded to 5 seconds",
+  "timing_is_rehearsed": false,
+  "source_deck_pdf_sha256": "4bbb428c036fa771e95cfddd223763644af10c884bcfaad87faa81680d335446",
+  "timings": [
+    {
+      "slide": 1,
+      "start_seconds": 0,
+      "duration_seconds": 30
+    },
+    {
+      "slide": 2,
+      "start_seconds": 30,
+      "duration_seconds": 60
+    },
+    {
+      "slide": 3,
+      "start_seconds": 90,
+      "duration_seconds": 55
+    },
+    {
+      "slide": 4,
+      "start_seconds": 145,
+      "duration_seconds": 65
+    },
+    {
+      "slide": 5,
+      "start_seconds": 210,
+      "duration_seconds": 55
+    },
+    {
+      "slide": 6,
+      "start_seconds": 265,
+      "duration_seconds": 80
+    },
+    {
+      "slide": 7,
+      "start_seconds": 345,
+      "duration_seconds": 60
+    },
+    {
+      "slide": 8,
+      "start_seconds": 405,
+      "duration_seconds": 65
+    },
+    {
+      "slide": 9,
+      "start_seconds": 470,
+      "duration_seconds": 60
+    },
+    {
+      "slide": 10,
+      "start_seconds": 530,
+      "duration_seconds": 70
+    },
+    {
+      "slide": 11,
+      "start_seconds": 600,
+      "duration_seconds": 80
+    },
+    {
+      "slide": 12,
+      "start_seconds": 680,
+      "duration_seconds": 65
+    },
+    {
+      "slide": 13,
+      "start_seconds": 745,
+      "duration_seconds": 60
+    }
+  ],
+  "docx_path": "./Презентация_DAMDID_Для_выступления/DAMDID_2026_Speech_EN.docx"
+}

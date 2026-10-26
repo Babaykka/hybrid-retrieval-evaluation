@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "slides": 16,
+  "main_slides": 12,
+  "backup_slides": 4,
+  "native_charts_source_verified": 5,
+  "native_workbooks": 5,
+  "speaker_notes": 16,
+  "source_rounding_absolute_tolerance": 5.1e-09,
+  "pdf_decimal_points_verified": true,
+  "final_nonchart_slides_pixel_identical_to_reviewed_render": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "powerpoint_opened_without_repair_prompt": true,
+  "powerpoint_visual_spot_checks": [
+    1,
+    6,
+    7
+  ],
+  "powerpoint_decimal_separators": "Follow the user application regional settings. PDF uses English formatting.",
+  "sha256": {
+    "DAMDID_2026_Talk.pptx": "9e02be8176f1f6919afe98f1fb133e78345050ed57759c207d2abc040ba2c9ad",
+    "DAMDID_2026_Talk.pdf": "99a89df8f9d4830fca3711a232b9bd2f5a7abcb451fb6112510ee5003874e71e"
+  }
+}

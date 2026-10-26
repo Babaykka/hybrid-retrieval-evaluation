@@ -1,0 +1,81 @@
+{
+  "blas_thread_environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "command": [
+    "python3",
+    "fullset_eval.py",
+    "--zip",
+    "phd2.zip"
+  ],
+  "dependencies": {
+    "ijson": "3.5.1",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3"
+  },
+  "entries": {
+    "bge": {
+      "compressed_size": 233846874,
+      "compression_type": 8,
+      "crc32": "205dbcf3",
+      "name": "phd2/msmarco/run_files/bge.run",
+      "sha256_uncompressed": "13f3f837b2e86c86bb3ee955cbe5310b6d24d6b4ebc67410ee0dca90a5927685",
+      "streamed_bytes": 699123502,
+      "uncompressed_size": 699123502
+    },
+    "bm25": {
+      "compressed_size": 228900863,
+      "compression_type": 8,
+      "crc32": "f017ca30",
+      "name": "phd2/msmarco/run_files/bm25.run",
+      "sha256_uncompressed": "c9bf5c3fa102ca9dc90f71699f17caa1bd96dcc8aad6b8f3e51df3f906f7760a",
+      "streamed_bytes": 726103595,
+      "uncompressed_size": 726103595
+    },
+    "config": {
+      "compressed_size": 295,
+      "compression_type": 8,
+      "crc32": "fb265787",
+      "name": "phd2/output_fixed/judge_config.json",
+      "sha256_uncompressed": "6c73582d156016e3272a698456a3e9920cfa5be5e5bef47c8b7963239c49ce4a",
+      "streamed_bytes": 532,
+      "uncompressed_size": 532
+    },
+    "e5": {
+      "compressed_size": 227882170,
+      "compression_type": 8,
+      "crc32": "47af7a75",
+      "name": "phd2/msmarco/run_files/e5.run",
+      "sha256_uncompressed": "c94d6d91cd90b0358879907cbd23cffb191329b495df0df70f1356d137aa191a",
+      "streamed_bytes": 678813348,
+      "uncompressed_size": 678813348
+    },
+    "manual": {
+      "compressed_size": 100501,
+      "compression_type": 8,
+      "crc32": "fcab6943",
+      "name": "phd2/output_fixed/human_qrels_extended.json",
+      "sha256_uncompressed": "7610d74c4017a02f40baa68c0ee871506cef41d3a3c35c25f64c3222b8456b49",
+      "streamed_bytes": 301176,
+      "uncompressed_size": 301176
+    },
+    "scores": {
+      "compressed_size": 674557097,
+      "compression_type": 8,
+      "crc32": "19f57bcf",
+      "name": "phd2/output_fixed/msmarco_full/judge_scores_full.json",
+      "sha256_uncompressed": "86b973ac3da1a95adb58594accba9f1f0cae38e23609042e22421aa6b94f4422",
+      "streamed_bytes": 1423665181,
+      "uncompressed_size": 1423665181
+    }
+  },
+  "executable": "python3",
+  "platform": "macOS-26.4.1-arm64-arm-64bit",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "script_sha256": "c6f610bf78ed08e8000c44b736dddbd1b9c736831fb8c50d89a0956055522056",
+  "zip_path": "phd2.zip",
+  "zip_size": 28016972935
+}

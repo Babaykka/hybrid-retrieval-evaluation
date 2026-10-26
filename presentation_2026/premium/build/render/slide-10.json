@@ -1,0 +1,515 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/vo985d",
+    "id": "vo985d",
+    "slide": 10,
+    "layoutId": "ebff5b89-b5a4-44bf-9697-e4d6828fa396",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "c22adb26-54a1-49f9-add6-5f10c6ba5de6",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "ebff5b89-b5a4-44bf-9697-e4d6828fa396",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "c22adb26-54a1-49f9-add6-5f10c6ba5de6",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "c22adb26-54a1-49f9-add6-5f10c6ba5de6",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vilkf2p4",
+      "id": "1",
+      "name": "Changing the pool and fusion inputs",
+      "bbox": [
+        64,
+        48,
+        1152,
+        119
+      ],
+      "geometry": "rect",
+      "text": "Changing the pool and fusion inputs",
+      "textPreview": "Changing the pool and fusion inputs",
+      "resolvedFontSize": 46,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 46,
+        "typeface": "Arial",
+        "color": "#182B30",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Changing the pool and fusion inputs"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Changing the pool and fusion inputs",
+          "resolvedTextStyle": {
+            "fontSize": 46,
+            "typeface": "Arial",
+            "color": "#182B30",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Changing the pool and fusion inputs",
+              "fontSize": 46,
+              "typeface": "Arial",
+              "color": "#182B30",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gje1876p",
+      "id": "2",
+      "name": "10",
+      "bbox": [
+        1104,
+        681,
+        112,
+        22
+      ],
+      "geometry": "rect",
+      "text": "10",
+      "textPreview": "10",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "10"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "10",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "10",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hkn2hc7a",
+      "id": "3",
+      "name": "K: results per retriever in the pool     L: resu",
+      "bbox": [
+        64,
+        160,
+        1152,
+        38
+      ],
+      "geometry": "rect",
+      "text": "K: results per retriever in the pool     L: results per retriever fed to RRF",
+      "textPreview": "K: results per retriever in the pool     L: results per retriever fed to RRF",
+      "resolvedFontSize": 26,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 26,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "K: results per retriever in the pool     L: results per retriever fed to RRF"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "K: results per retriever in the pool     L: results per retriever fed to RRF",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "K: results per retriever in the pool     L: results per retriever fed to RRF",
+              "fontSize": 26,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ilwjahof",
+      "id": "4",
+      "name": "Both depths change together: L = K",
+      "bbox": [
+        64,
+        204,
+        1152,
+        42
+      ],
+      "geometry": "rect",
+      "text": "Both depths change together: L = K",
+      "textPreview": "Both depths change together: L = K",
+      "resolvedFontSize": 29,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 29,
+        "typeface": "Arial",
+        "color": "#C95236",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Both depths change together: L = K"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Both depths change together: L = K",
+          "resolvedTextStyle": {
+            "fontSize": 29,
+            "typeface": "Arial",
+            "color": "#C95236",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Both depths change together: L = K",
+              "fontSize": 29,
+              "typeface": "Arial",
+              "color": "#C95236",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "chart",
+      "scope": "slide",
+      "aid": "ch/vqhwzuhw",
+      "id": "5",
+      "bbox": [
+        64,
+        252,
+        1152,
+        323
+      ],
+      "chartType": "scatter"
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4ne1cr6l",
+      "id": "6",
+      "name": "At K = 200: a small gap of +0.0088 in pooled NDC",
+      "bbox": [
+        64,
+        588,
+        1152,
+        38
+      ],
+      "geometry": "rect",
+      "text": "At K = 200: a small gap of +0.0088 in pooled NDCG@10",
+      "textPreview": "At K = 200: a small gap of +0.0088 in pooled NDCG@10",
+      "resolvedFontSize": 27,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 27,
+        "typeface": "Arial",
+        "color": "#C95236",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "At K = 200: a small gap of +0.0088 in pooled NDCG@10"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "At K = 200: a small gap of +0.0088 in pooled NDCG@10",
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Arial",
+            "color": "#C95236",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "At K = 200: a small gap of +0.0088 in pooled NDCG@10",
+              "fontSize": 27,
+              "typeface": "Arial",
+              "color": "#C95236",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5on2lwn6",
+      "id": "7",
+      "name": "Pseudo-labels from one judge. 95% paired CI [0.0",
+      "bbox": [
+        64,
+        632,
+        1110,
+        59
+      ],
+      "geometry": "rect",
+      "text": "Pseudo-labels from one judge. 95% paired CI [0.0082, 0.0095].\nQuery-bootstrap intervals exclude judge uncertainty.",
+      "textPreview": "Pseudo-labels from one judge. 95% paired CI [0.0082, 0.0095]. | Query-bootstrap intervals exclude judge uncertainty.",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 23,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Pseudo-labels from one judge. 95% paired CI [0.0082, 0.0095]."
+          },
+          {
+            "index": 2,
+            "text": "Query-bootstrap intervals exclude judge uncertainty."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Pseudo-labels from one judge. 95% paired CI [0.0082, 0.0095].",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Pseudo-labels from one judge. 95% paired CI [0.0082, 0.0095].",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Query-bootstrap intervals exclude judge uncertainty.",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Query-bootstrap intervals exclude judge uncertainty.",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

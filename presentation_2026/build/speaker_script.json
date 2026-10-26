@@ -1,0 +1,130 @@
+[
+  {
+    "n": 1,
+    "title": "",
+    "seconds": 35,
+    "note": "Сегодня я расскажу, как неполная разметка влияет на оценку поиска. Мы исследуем MS MARCO, где у запроса часто указан только один правильный фрагмент, хотя подходящих ответов может быть несколько. Работа состоит из ручной доразметки и отдельного эксперимента с автоматическим судьёй. Основной вопрос: как меняется оценка уже существующей выдачи, когда мы расширяем набор известных релевантных ответов?",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.\nConference: https://damdid.unn.ru/overview/\nCover: editorial illustration of passage annotation, not experimental evidence.",
+    "backup": false
+  },
+  {
+    "n": 2,
+    "title": "One query can have several correct answers",
+    "seconds": 75,
+    "note": "Начнём с реального примера. Запрос спрашивает, что вызывает повышение температуры кипения. Исходная разметка содержит фрагмент про добавление соли. Другой фрагмент объясняет тот же эффект через нелетучее растворённое вещество. Человек считает его релевантным, однако в исходных qrels он отсутствует. Qrels означает query relevance judgments, то есть оценки релевантности документов запросам. Отсутствие записи даёт нулевой вклад в метрику, хотя ответ может быть правильным. Третий фрагмент сообщает температуру кипения ацетона и на вопрос о причине не отвечает. Тексты здесь сокращены, идентификаторы сохранены. Это пример конкретной ошибки оценки, а не оценка частоты таких ошибок во всём корпусе.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.",
+    "backup": false
+  },
+  {
+    "n": 3,
+    "title": "Annotation coverage at two scales",
+    "seconds": 65,
+    "note": "Исходный материал представляет собой англоязычную коллекцию MS MARCO Passage Ranking из примерно 8,84 миллиона фрагментов. В ручной части мы анализируем 1179 запросов и 33667 различных пар запрос–фрагмент. Затем применяем обученного судью к пулам для 101093 запросов. Это две разные основы оценки: ручные суждения и предсказания модели. Под deep re-annotation понимается более полное покрытие кандидатов внутри выбранного пула. Слово deep не означает глубину нейросети или полную разметку корпуса. Размер ручного пула в среднем составляет 28,56 кандидата на запрос, максимум 63. Коллекцию MS MARCO мы используем как воспроизводимую исследовательскую среду, не утверждая её универсальность для всех поисковых систем и аудиторий.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.\nBajaj et al. (2016), https://arxiv.org/abs/1611.09268\nMS MARCO resources: https://microsoft.github.io/msmarco/Datasets",
+    "backup": false
+  },
+  {
+    "n": 4,
+    "title": "Pooling and human assessment",
+    "seconds": 75,
+    "note": "Для ручной разметки сначала выполняется пулинг: объединение кандидатов из нескольких источников с удалением дубликатов. Поиск по запросу представлен BM25, который сопоставляет термы, и плотными биэнкодерами E5 и BGE. Для каждого из трёх источников сохранены первые десять результатов. Дополнительные каналы включают сходство, вычисленное E5 между кандидатом и известным правильным ответом. Поэтому ручной пул содержит больше кандидатов, чем объединение только трёх выдач. Человек видит запрос, кандидата и исходный релевантный ответ. Это помогает согласовать доразметку с исходным пониманием релевантности. Сигнал известного ответа используется для подготовки и оценки кандидатов, но недоступен обычной модели поиска, работающей только по запросу. В сравнении систем участвуют три источника поиска и их RRF.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.\nRobertson and Zaragoza (2009), The Probabilistic Relevance Framework: BM25 and Beyond.\nE5: https://arxiv.org/abs/2212.03533\nBGE full-set model: https://huggingface.co/BAAI/bge-small-en-v1.5",
+    "backup": false
+  },
+  {
+    "n": 5,
+    "title": "Human judgments reveal many more positives",
+    "seconds": 60,
+    "note": "На одном и том же наборе из 1179 запросов число положительных пар увеличивается с 1243 до 20597. В среднем это переход с 1,05 до 17,47 релевантного фрагмента на запрос. Доразметка обнаруживает ещё 19354 положительные пары относительно пересечения исходных qrels с ручным пулом. Здесь важно точно понимать знаменатель: мы считаем документы внутри подготовленных пулов. Это не утверждение, что во всей коллекции у каждого запроса ровно семнадцать правильных ответов. Пул специально обогащён вероятно релевантными кандидатами, в том числе с использованием известного ответа. Результат показывает, насколько неполными были исходные оценки именно для этих кандидатов.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.",
+    "backup": false
+  },
+  {
+    "n": 6,
+    "title": "Fixed rankings, different relevance labels",
+    "seconds": 70,
+    "note": "Чтобы оценить влияние доразметки, мы сохраняем выдачи систем и меняем только оценки релевантности. Используется NDCG@10: нормированная мера качества первых десяти результатов, где релевантный документ на более высокой позиции даёт больший вклад. Для каждого запроса и набора разметки идеальный знаменатель рассчитывается по всему пулу и одинаков для всех систем. Он может измениться после доразметки. Все 1179 запросов входят в среднее, даже если система не нашла ни одного положительного документа. RRF, Reciprocal Rank Fusion, объединяет ранги BM25, E5 и BGE. В ручной части у каждого источника берём десять позиций, константа RRF равна 60. Рост метрики в таком сравнении означает более полную оценку существующих ответов, а не улучшение модели после обучения.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.\nCormack, Clarke and Buttcher (2009), Reciprocal Rank Fusion outperforms Condorcet and Individual Rank Learning Methods. SIGIR, pp. 758-759.",
+    "backup": false
+  },
+  {
+    "n": 7,
+    "title": "NDCG rises with denser human judgments",
+    "seconds": 80,
+    "note": "На графике показаны результаты для одинаковых выдач под исходной и ручной разметкой. Например, BM25 меняется с 0,248 до 0,644, а E5 с 0,488 до 0,879. Для всех четырёх вариантов средний прирост составляет около 0,39. Парные проверки по запросам дают p меньше 0,001, в том числе после поправки на множественные сравнения. Это сильный эффект полноты разметки, но не результат повторного обучения поисковых систем. E5 остаётся лучшей из трёх сравниваемых моделей поиска. Их объединение RRF находится между E5 и BGE и в ручном эксперименте не превосходит E5. Числа относятся к оценке внутри размеченных пулов с общим IDCG, поэтому их нельзя напрямую сравнивать с полнокорпусным лидербордом.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.",
+    "backup": false
+  },
+  {
+    "n": 8,
+    "title": "MiniLM cross-encoder as a relevance judge",
+    "seconds": 80,
+    "note": "Ручная разметка остаётся основой для проверки качества судьи, а модель нужна для расширения эксперимента на гораздо большее число пар. Судья представляет собой компактный cross-encoder MiniLM: он совместно обрабатывает текст запроса и кандидата. Это отличается от биэнкодеров E5 и BGE, которые получают отдельные векторные представления. Судья не получает готовые эмбеддинги, оценки и ранги других моделей или правильный ответ. На отложенных 177 запросах, содержащих 5002 пары, ROC-AUC равен 0,907, precision 0,851, recall 0,902 и F1 0,875. Порог выбирается на валидации и фиксируется до теста. Это свидетельство согласия с ручной разметкой выбранных кандидатов, а не доказательство, что судья сильнее всех моделей поиска.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.\nMiniLM model: https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2\nNogueira and Cho (2019), https://arxiv.org/abs/1901.04085",
+    "backup": false
+  },
+  {
+    "n": 9,
+    "title": "Pseudo-label counts depend on pool depth",
+    "seconds": 75,
+    "note": "Во второй части берём 101093 запроса и объединяем первые K результатов BM25, E5 и BGE. Для всех глубин используется один судья и один порог. По мере расширения пула среднее число кандидатов растёт примерно с 22 до 452. Среднее число положительных предсказаний растёт с 14,2 до 128,6. На графике все средние рассчитаны по полному набору запросов, включая запросы без положительных предсказаний. Следовательно, утверждение о примерно 129 релевантных документах без описания метода было бы некорректным. Мы наблюдаем плотность положительных предсказаний конкретного судьи в конкретном пуле. Ошибки судьи и целенаправленный отбор кандидатов не позволяют интерпретировать эту величину как истинную релевантность всего корпуса.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.",
+    "backup": false
+  },
+  {
+    "n": 10,
+    "title": "RRF depends on the depth of its input lists",
+    "seconds": 85,
+    "note": "Теперь сравним RRF и E5 под псевдоразметкой. При K, равном 10, RRF уступает E5 примерно на 0,020 NDCG. На четырёх более глубоких вариантах RRF немного выше E5. При K, равном 200, разница составляет около 0,009, а 95-процентный доверительный интервал примерно от 0,0082 до 0,0095. Здесь одновременно меняются пул оценки и глубина входных списков RRF. Поэтому наблюдение нельзя объяснять только расширением разметки. Выдача E5 в первых десяти позициях остаётся той же, но нормировка может изменяться. У RRF может изменяться и сама выдача. Наконец, оба результата измеряют согласие с этим судьёй. Это условный результат данного эксперимента, а не доказательство универсального превосходства RRF.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.\nCormack, Clarke and Buttcher (2009), Reciprocal Rank Fusion outperforms Condorcet and Individual Rank Learning Methods. SIGIR, pp. 758-759.",
+    "backup": false
+  },
+  {
+    "n": 11,
+    "title": "A judge with access to the known answer",
+    "seconds": 65,
+    "note": "Текущий судья намеренно ограничен двумя текстами: запросом и кандидатом. Это простой базовый эксперимент, а не оптимальный способ аннотирования. У человека уже есть известный правильный ответ, и естественный следующий шаг состоит в том, чтобы дать эту информацию модели-судье. Планируемый формат входа: запрос, известный релевантный ответ и оцениваемый фрагмент. Такую модель следует сравнить с текущей и более сильными cross-encoder моделями на отложенной ручной разметке. В этой работе такого сравнения ещё нет. Важно также проверить перенос на другие коллекции: наши выводы ограничены английским MS MARCO, выбранными пулами и одним судьёй. Это особенно существенно для обобщений на другие языки, поисковые системы и типы запросов.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.\nMiniLM model: https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2\nNogueira and Cho (2019), https://arxiv.org/abs/1901.04085",
+    "backup": false
+  },
+  {
+    "n": 12,
+    "title": "Conclusions",
+    "seconds": 45,
+    "note": "Подведу итог. Ручная доразметка обнаруживает много подходящих ответов, которые отсутствовали в исходных qrels: в среднем 17,47 положительного фрагмента вместо 1,05 в наших пулах. Более полные оценки заметно повышают NDCG неизменных выдач. MiniLM позволяет расширить исследование, но его предсказания нужно отличать от человеческих суждений. Для интерпретации RRF необходимо одновременно указывать глубину пула и глубину входных списков. На более глубоких списках мы видим небольшой выигрыш относительно E5 под псевдоразметкой. Следующий эксперимент должен проверить более сильных судей и использование известного ответа. Спасибо, я готов к вопросам.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.",
+    "backup": false
+  },
+  {
+    "n": 13,
+    "title": "NDCG@10 and aggregation rules",
+    "seconds": 0,
+    "note": "В расчёте используется бинарная релевантность. DCG@10 суммирует релевантности с логарифмическим дисконтированием позиции. IDCG@10 строится из всех положительных оценок пула, а не только из найденных системой документов. Для одного запроса и набора меток IDCG одинаков для всех сравниваемых систем. Если положительных оценок в пуле нет, NDCG задаётся равным нулю. Такие запросы не исключаются из среднего. Неразмеченные документы сохраняют позиции и получают нулевой вклад. В ручной части различия проверены парным бутстрэпом по запросам и sign-flip тестом. Полный набор использует те же принципы агрегации.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.",
+    "backup": true
+  },
+  {
+    "n": 14,
+    "title": "Judge training and held-out evaluation",
+    "seconds": 0,
+    "note": "Разбиение выполняется по запросам, чтобы пары одного запроса не попадали одновременно в обучающую и тестовую части. Использованы 825 обучающих, 177 валидационных и 177 тестовых запросов. После двух эпох дообучения порог выбирается на валидации. Значение примерно минус 0,2187 относится к сырому выходному баллу модели, а не к вероятности. Дополнительная проверка с переранжированием полного ручного пула на 177 тестовых запросах даёт NDCG@10 0,512 под исходными метками и 0,938 под человеческими. Это условное переранжирование заранее обогащённого пула. Его нельзя трактовать как качество первоначального поиска по всему корпусу или доказательство превосходства над всеми генераторами кандидатов.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.\nMiniLM model: https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2\nNogueira and Cho (2019), https://arxiv.org/abs/1901.04085",
+    "backup": true
+  },
+  {
+    "n": 15,
+    "title": "Sensitivity to query selection",
+    "seconds": 0,
+    "note": "Ручной анализ повторён после исключения 23 запросов с нестандартными значениями меток или отсутствующим текстом кандидата. На оставшихся 1156 запросах порядок систем сохраняется, а округлённые оценки почти не меняются. Для большого эксперимента отдельно исключены все 1179 запросов ручной части. На оставшихся 99914 запросах знак разницы RRF и E5 сохраняется как на глубине 10, так и на глубине 200. Это снижает влияние пересечения ручной и автоматической частей, но не превращает псевдоразметку в независимую человеческую оценку. Также возможны общие смещения одного и того же судьи.",
+    "refs": ",  and . Deep Re-annotation and Controlled Candidate Pools for Re-evaluating Ranking Models on MS MARCO. DAMDID 2026. Study data and recomputed pool-based analysis.",
+    "backup": true
+  },
+  {
+    "n": 16,
+    "title": "Selected references",
+    "seconds": 0,
+    "note": "Основные источники для вопросов о коллекции, способах поиска, RRF и архитектуре судьи. Неполные релевантностные оценки и пулинг являются давно известной проблемой информационного поиска. Вклад данной работы состоит в экспериментальной оценке конкретной доразметки и явном контроле условий сравнения. Полные ссылки и дополнительные источники приведены в статье.",
+    "refs": "Bajaj et al. (2016), https://arxiv.org/abs/1611.09268\nMS MARCO resources: https://microsoft.github.io/msmarco/Datasets\n\nRobertson and Zaragoza (2009), The Probabilistic Relevance Framework: BM25 and Beyond.\nE5: https://arxiv.org/abs/2212.03533\nBGE full-set model: https://huggingface.co/BAAI/bge-small-en-v1.5\n\nCormack, Clarke and Buttcher (2009), Reciprocal Rank Fusion outperforms Condorcet and Individual Rank Learning Methods. SIGIR, pp. 758-759.\n\nMiniLM model: https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2\nNogueira and Cho (2019), https://arxiv.org/abs/1901.04085",
+    "backup": true
+  }
+]

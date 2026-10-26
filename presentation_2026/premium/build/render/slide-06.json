@@ -1,0 +1,420 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/3t8jlq",
+    "id": "3t8jlq",
+    "slide": 6,
+    "layoutId": "ebff5b89-b5a4-44bf-9697-e4d6828fa396",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "c22adb26-54a1-49f9-add6-5f10c6ba5de6",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "ebff5b89-b5a4-44bf-9697-e4d6828fa396",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "c22adb26-54a1-49f9-add6-5f10c6ba5de6",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "c22adb26-54a1-49f9-add6-5f10c6ba5de6",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/03e98but",
+      "id": "1",
+      "name": "More judgments change measured NDCG@10",
+      "bbox": [
+        64,
+        48,
+        1152,
+        119
+      ],
+      "geometry": "rect",
+      "text": "More judgments change measured NDCG@10",
+      "textPreview": "More judgments change measured NDCG@10",
+      "resolvedFontSize": 46,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 46,
+        "typeface": "Arial",
+        "color": "#182B30",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "More judgments change measured NDCG@10"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "More judgments change measured NDCG@10",
+          "resolvedTextStyle": {
+            "fontSize": 46,
+            "typeface": "Arial",
+            "color": "#182B30",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "More judgments change measured NDCG@10",
+              "fontSize": 46,
+              "typeface": "Arial",
+              "color": "#182B30",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zi5sz6d8",
+      "id": "2",
+      "name": "06",
+      "bbox": [
+        1104,
+        681,
+        112,
+        22
+      ],
+      "geometry": "rect",
+      "text": "06",
+      "textPreview": "06",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "06"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "06",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "06",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ehwr61c3",
+      "id": "3",
+      "name": "RRF: reciprocal rank fusion of BM25, E5 and BGE",
+      "bbox": [
+        64,
+        162,
+        1152,
+        35
+      ],
+      "geometry": "rect",
+      "text": "RRF: reciprocal rank fusion of BM25, E5 and BGE",
+      "textPreview": "RRF: reciprocal rank fusion of BM25, E5 and BGE",
+      "resolvedFontSize": 26,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 26,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "RRF: reciprocal rank fusion of BM25, E5 and BGE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "RRF: reciprocal rank fusion of BM25, E5 and BGE",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "RRF: reciprocal rank fusion of BM25, E5 and BGE",
+              "fontSize": 26,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "chart",
+      "scope": "slide",
+      "aid": "ch/po36h4j6",
+      "id": "4",
+      "bbox": [
+        64,
+        205,
+        1152,
+        367
+      ],
+      "chartType": "bar"
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/o7ytcvu5",
+      "id": "5",
+      "name": "E5 paired change: +0.391   95% CI [0.365, 0.417]",
+      "bbox": [
+        64,
+        594,
+        1145,
+        42
+      ],
+      "geometry": "rect",
+      "text": "E5 paired change: +0.391   95% CI [0.365, 0.417]",
+      "textPreview": "E5 paired change: +0.391   95% CI [0.365, 0.417]",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 28,
+        "typeface": "Arial",
+        "color": "#007F78",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "E5 paired change: +0.391   95% CI [0.365, 0.417]"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "E5 paired change: +0.391   95% CI [0.365, 0.417]",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#007F78",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "E5 paired change: +0.391   95% CI [0.365, 0.417]",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#007F78",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/n65s3qdk",
+      "id": "6",
+      "name": "Pooled NDCG@10. Same rankings; shared ideal deno",
+      "bbox": [
+        64,
+        642,
+        1135,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Pooled NDCG@10. Same rankings; shared ideal denominator within each query and label set.",
+      "textPreview": "Pooled NDCG@10. Same rankings; shared ideal denominator within each query and label set.",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Pooled NDCG@10. Same rankings; shared ideal denominator within each query and label set."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Pooled NDCG@10. Same rankings; shared ideal denominator within each query and label set.",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Pooled NDCG@10. Same rankings; shared ideal denominator within each query and label set.",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

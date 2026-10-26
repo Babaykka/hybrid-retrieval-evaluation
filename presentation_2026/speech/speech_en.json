@@ -1,0 +1,119 @@
+[
+  {
+    "slide": 1,
+    "heading": "Introduction",
+    "paragraphs": [
+      "Hello everyone. I will present our work on deep re-annotation and controlled candidate pools for MS MARCO, carried out with  and .",
+      "Our question is simple: how much does the evaluation of a retrieval system depend on which passages have been judged? Let me start with a concrete example."
+    ]
+  },
+  {
+    "slide": 2,
+    "heading": "A relevant passage without a judgment",
+    "paragraphs": [
+      "The query here asks what causes the boiling point to increase. The first passage mentions adding salt and is marked relevant in the original annotation. The second explains the role of a non-volatile solute. A human also judges it relevant, but it has no original relevance label. The third passage gives the boiling temperature of acetone and does not answer the question about the cause.",
+      "The relevance labels are commonly called qrels, short for query relevance judgments. In our evaluation, an unjudged passage receives zero gain. So a system can return a useful answer and receive no credit for it. Unjudged does not necessarily mean irrelevant. That is the problem we investigate."
+    ]
+  },
+  {
+    "slide": 3,
+    "heading": "Data and judgment coverage",
+    "paragraphs": [
+      "We use the English MS MARCO passage collection, which contains about 8.84 million passages. Our study has two parts. The manual part covers 1,179 queries and 33,667 query-passage pairs. The larger part uses an automatic judge on just over 101,000 queries, with different candidate-pool depths.",
+      "These two parts provide different kinds of evidence. The first uses human judgments. The second uses model predictions. Here, deep re-annotation means assessing multiple candidates within a defined pool. The word deep refers to judgment coverage, not to neural-network depth. We do not claim to have exhaustively annotated the full corpus."
+    ]
+  },
+  {
+    "slide": 4,
+    "heading": "Preparing the manual pools",
+    "paragraphs": [
+      "To prepare the manual data, we used pooling: combining candidate lists and removing duplicates. BM25 retrieves through lexical matching. E5 and BGE are dense retrievers that represent queries and passages separately as vectors. Each saved query-based list contributes ten results.",
+      "Additional selection channels expand the pool. These include E5 similarity to a known relevant answer. The human assessor also sees the query, the candidate passage, and that known relevant answer. We call this reference-assisted annotation because the reference provides information that an ordinary query-only retriever does not have.",
+      "The average pool contains about 28.6 candidates per query. These are deliberately selected candidates, not a random sample of the corpus. That distinction matters when interpreting the large number of relevant passages we find."
+    ]
+  },
+  {
+    "slide": 5,
+    "heading": "More judgments in the same pools",
+    "paragraphs": [
+      "Within these same pools, the original qrels contain 1,243 positive pairs. Extended human annotation gives 20,597. The average number of passages judged relevant per query rises from 1.05 to 17.47.",
+      "The original positive passages are not necessarily wrong. They simply leave many other acceptable answers unjudged. At the same time, this increase concerns our selected pools. It is not an estimate of how many relevant passages exist in the entire collection.",
+      "We now evaluate the retrieval systems with the two sets of judgments. The queries, candidate pools, and retrieval rankings stay the same. Only the relevance judgments change."
+    ]
+  },
+  {
+    "slide": 6,
+    "heading": "Retrieval scores after annotation",
+    "paragraphs": [
+      "We measure ranking quality with NDCG at ten. This metric gives more credit to relevant passages near the top of the first ten results and normalizes the score against an ideal ranking. Within each query and label set, all systems share the same ideal denominator.",
+      "We also include RRF, or reciprocal rank fusion. It combines the BM25, E5, and BGE lists using ranks rather than their raw scores.",
+      "The gray bars use original qrels, and the green bars use human judgments. All four average scores increase. For E5, NDCG rises from 0.488 to 0.879. The paired increase is about 0.391, with the confidence interval shown below the chart.",
+      "This is a change in measured quality under more complete judgments. We have not improved or retrained the retrieval systems. Their ordering remains E5, RRF, BGE, and BM25. These are scores within the annotated pools, not full-corpus leaderboard results."
+    ]
+  },
+  {
+    "slide": 7,
+    "heading": "Why we use an automatic judge",
+    "paragraphs": [
+      "Human judgments let us study this effect directly, but extending manual assessment to much larger pools is expensive. We therefore fine-tune a compact MiniLM cross-encoder on the human labels and use it to produce pseudo-labels.",
+      "A cross-encoder processes the query and candidate passage together. This differs from the separate query and passage representations used by E5 and BGE. Our judge receives only the two texts. It does not receive the known relevant answer, retrieval ranks, or scores from other models.",
+      "The decision threshold is selected on validation queries. The judge then allows us to study coverage at a larger scale. Its labels remain predictions, so we evaluate its agreement with human judgments separately."
+    ]
+  },
+  {
+    "slide": 8,
+    "heading": "Agreement on held out queries",
+    "paragraphs": [
+      "We split the manual data by query into training, validation, and test sets. The test set contains 177 held-out queries and 5,002 pairs.",
+      "The ROC curve shows the trade-off between true positives and false positives as the threshold changes. The area under the curve is 0.907. At the threshold selected on validation data, F1 is 0.875. Precision is about 0.851 and recall about 0.902. These results describe agreement with the coded human targets on the manual pools.",
+      "They do not independently validate the deeper pools used next. Those pools may contain different candidates and different errors. We therefore keep the human-annotation results separate from the larger experiment and interpret the latter as evaluation under one automatic judge."
+    ]
+  },
+  {
+    "slide": 9,
+    "heading": "Increasing pool depth",
+    "paragraphs": [
+      "For the larger experiment, we combine the top K results from each of BM25, E5, and BGE. K is the number taken from each retriever, not the number of unique passages after deduplication. The judge and its threshold stay fixed.",
+      "As K increases from ten to two hundred, the average pool grows from about 22 to 452 candidates. The average number predicted relevant grows from about 14 to 129. These averages include every query, including queries with no positive prediction.",
+      "The increase depends on the pool we choose to assess. It should not be interpreted as the number of all relevant answers in the corpus. Next, we examine how this changing coverage affects system comparisons."
+    ]
+  },
+  {
+    "slide": 10,
+    "heading": "Changing the pool and fusion inputs",
+    "paragraphs": [
+      "Here we compare RRF with E5. We distinguish two depths. K controls how many results from each retriever enter the judgment pool. L controls how many results enter rank fusion. In this configuration, they increase together: L equals K.",
+      "The horizontal axis shows RRF minus E5 in NDCG. Values to the left of zero favor E5; values to the right favor RRF. At K equal to ten, RRF scores lower. At the four larger depths, the gap is small and positive. At two hundred, it is about 0.0088.",
+      "The intervals come from paired bootstrap resampling of queries. They are conditional on the fixed judge and do not capture uncertainty in its training or labeling errors. Also, both coverage and fusion inputs change here. To isolate coverage more clearly, we next hold the rankings fixed."
+    ]
+  },
+  {
+    "slide": 11,
+    "heading": "Changing coverage with fixed rankings",
+    "paragraphs": [
+      "Now RRF always uses the top two hundred results from each source. L stays fixed, and the top ten results returned by both RRF and E5 remain unchanged. Only K, the depth of the judgment pool, varies.",
+      "Even with those fixed rankings, the comparison reverses. The RRF-minus-E5 difference is about minus 0.066 at K equal to ten and plus 0.008 at K equal to thirty.",
+      "The annotation on the right helps explain why coverage matters. At the shallowest depth, 14.4 percent of RRF's returned top-ten pairs fall outside the judgment pool. They receive zero gain because they are unjudged. This does not mean that all of them are relevant.",
+      "A larger pool provides judgments for more returned passages and can also change the ideal denominator. The key finding is that the measured ordering can change without either system changing its output. This finding still depends on the pseudo-labels from our single judge."
+    ]
+  },
+  {
+    "slide": 12,
+    "heading": "Scope and robustness",
+    "paragraphs": [
+      "We checked sensitivity to two exclusions. In the manual experiment, removing 23 queries affected by unresolved label categories or empty texts leaves the system ordering unchanged. In the larger experiment, removing all manually annotated queries leaves 99,914 queries. The signs of the RRF-versus-E5 differences remain unchanged across the tested depths.",
+      "These checks address specific data issues and the overlap between the two query sets. They do not remove all sources of bias. The manual pools use reference information, and agreement between assessors was not measured. The larger experiment relies on one compact judge without independent human validation of the deeper pools.",
+      "Our conclusions therefore concern the selected English MS MARCO pools. Transfer to other languages, domains, and search providers remains to be tested."
+    ]
+  },
+  {
+    "slide": 13,
+    "heading": "Conclusions and next steps",
+    "paragraphs": [
+      "To conclude, more complete human judgments substantially change the evaluation of existing retrieval output. In our manual pools, E5's measured NDCG rises from 0.488 to 0.879 with exactly the same ranking.",
+      "The larger experiment shows that judgment coverage can even reverse the RRF-versus-E5 comparison when both rankings stay fixed. This result is conditional on one automatic judge.",
+      "Alongside a retrieval score, we therefore need to report the judgment pool, the label source, and the fusion settings. Our next step is to compare stronger judges with and without a known relevant reference passage, using independent human judgments for validation. That experiment is planned, not completed.",
+      "Thank you. I welcome your questions."
+    ]
+  }
+]

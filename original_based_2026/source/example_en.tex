@@ -1,0 +1,20 @@
+\paragraph{Example.}
+For query 1086224, ``what causes boiling point to increase'', Table~\ref{tab:annotation-example} contrasts an original relevant passage, an additional relevant answer, and a negative candidate. The descriptions are shortened paraphrases of the stored passages.
+
+\begin{table}[t]
+\centering
+\caption{A concrete annotation example. ``Unjudged'' means absent from the original positive qrels, not necessarily irrelevant.}
+\label{tab:annotation-example}
+\small
+\begin{tabularx}{\textwidth}{@{}l L l l@{}}
+\toprule
+Passage ID & Passage content & Original & Human \\
+\midrule
+7112148 & Adding salt to water increases its boiling point. & Relevant & Relevant \\
+7399382 & Adding a non-volatile solute, such as salt, raises a solvent's boiling point. & Unjudged & Relevant \\
+987600 & Reports the boiling temperature of acetone. & Unjudged & Not relevant \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+A system returning passage 7399382 receives no gain for that passage under the original sparse qrels. After the additional human judgment, the same passage contributes positive gain without any change to the system's ranking.

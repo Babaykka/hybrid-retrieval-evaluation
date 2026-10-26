@@ -1,0 +1,49 @@
+{
+  "status": "pass",
+  "version": "v13",
+  "slides": 18,
+  "main_slides": 13,
+  "appendix_slides": 5,
+  "planned_seconds": 810,
+  "native_charts_verified_against_source": 5,
+  "embedded_workbooks": 5,
+  "custom_paired_error_bars_verified": 2,
+  "speaker_notes": 18,
+  "pdf_plot_color_pixels": {
+    "8": 4768,
+    "9": 3174,
+    "10": 2037,
+    "11": 5587
+  },
+  "preserved_original_sha256": {
+    "DAMDID_2026_Talk.pptx": "9e02be8176f1f6919afe98f1fb133e78345050ed57759c207d2abc040ba2c9ad",
+    "DAMDID_2026_Talk.pdf": "99a89df8f9d4830fca3711a232b9bd2f5a7abcb451fb6112510ee5003874e71e"
+  },
+  "preserved_v5_sha256": {
+    "DAMDID_2026_Presentation.pptx": "ab9f9c9fb2d0dce8cc6c82b3965e011254a856f05cc51bd7fd9fb797baf2a135",
+    "DAMDID_2026_Presentation.pdf": "9a54a62c2ef0b23ae81f9524d7d2abaa10325a26bb48529437a284d847a4421d"
+  },
+  "preserved_v10_sha256": {
+    "DAMDID_2026_Final.pptx": "b065cb7297f20eb3a0a4730e13d08e7f8ddf35d0f8a9cdd0796e1f21e4ffd368",
+    "DAMDID_2026_Final.pdf": "a33b967bfd2b67763c791823acaf063a964a52ed83020357ff75d1e10322a561"
+  },
+  "visually_changed_slides": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "sha256": {
+    "validated-v13.pptx": "7f8e873ef396a414aeb1ef9ecad61c77a7115521dc7498b65d5e6463edaf837c",
+    "validated-v13.pdf": "4bbb428c036fa771e95cfddd223763644af10c884bcfaad87faa81680d335446"
+  },
+  "source_sha256": {
+    "manual_summary.json": "de9fa89bc02ca9da50037277173e6dc322340562c2063afa58ffe34e8bed45be",
+    "fullset_summary.json": "cec56fef8c0d01fadf3d1d14ce286a3fdd7d4d6c7209921f06125d4e79626b80"
+  },
+  "claim_boundary": "Automated content and data audit. Visual/native application checks recorded separately."
+}

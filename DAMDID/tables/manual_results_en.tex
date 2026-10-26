@@ -1,0 +1,15 @@
+\begin{table}[t]
+\caption{Pooled NDCG@10 before and after manual annotation on all 1,179 queries. These are not full-corpus leaderboard scores. $\Delta$ is human minus original; intervals are paired 95\% bootstrap intervals.}
+\label{tab:manual-results}
+\centering\small
+\begin{tabularx}{\textwidth}{@{}Lrrrr@{}}
+\toprule
+System & Original & Human & $\Delta$ & 95\% CI \\
+\midrule
+BM25 & 0.248 & 0.644 & +0.396 & [0.372, 0.419] \\
+E5 & 0.488 & 0.879 & +0.391 & [0.365, 0.417] \\
+BGE & 0.433 & 0.828 & +0.395 & [0.369, 0.419] \\
+RRF(3) & 0.459 & 0.854 & +0.395 & [0.371, 0.419] \\
+\bottomrule
+\end{tabularx}
+\end{table}

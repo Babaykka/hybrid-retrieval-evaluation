@@ -1,0 +1,205 @@
+{
+  "schema": "openai.presentation.layout/v5",
+  "unit": "px",
+  "slide": {
+    "id": "sl/okiooy",
+    "index": 21,
+    "layout": {
+      "id": "ly/udobyxwn",
+      "name": "Title Slide"
+    },
+    "backgroundColor": "rgba(255,255,255,1)",
+    "position": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "elements": [
+    {
+      "id": "sh/kfql0zu9",
+      "kind": "textbox",
+      "name": "Судья как переранжировщик",
+      "position": {
+        "left": 64,
+        "top": 49,
+        "width": 1152,
+        "height": 106
+      },
+      "text": "Судья как переранжировщик",
+      "style": {
+        "fontSize": 44,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/jehk7ud4",
+      "kind": "textbox",
+      "name": "РЕЗЕРВ 6",
+      "position": {
+        "left": 1104,
+        "top": 681,
+        "width": 112,
+        "height": 22
+      },
+      "text": "РЕЗЕРВ 6",
+      "style": {
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#51646A",
+        "alignment": "right"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/yd83ypcj",
+      "kind": "textbox",
+      "name": "177 тестовых запросов · переранжирование кандида",
+      "position": {
+        "left": 64,
+        "top": 164,
+        "width": 1152,
+        "height": 73
+      },
+      "text": "177 тестовых запросов · переранжирование кандидатов ручного пула",
+      "style": {
+        "fontSize": 28,
+        "typeface": "Arial",
+        "color": "#51646A",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/xsz25kvy",
+      "kind": "textbox",
+      "name": "0,512",
+      "position": {
+        "left": 64,
+        "top": 289,
+        "width": 492,
+        "height": 99
+      },
+      "text": "0,512",
+      "style": {
+        "fontSize": 86,
+        "typeface": "Arial",
+        "color": "#7E8B91",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/wrqlwfed",
+      "kind": "textbox",
+      "name": "NDCG@10\nпо исходным меткам",
+      "position": {
+        "left": 64,
+        "top": 410,
+        "width": 502,
+        "height": 90
+      },
+      "text": "NDCG@10\nпо исходным меткам",
+      "style": {
+        "fontSize": 31,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/bqhk3ads",
+      "kind": "textbox",
+      "name": "0,938",
+      "position": {
+        "left": 704,
+        "top": 289,
+        "width": 512,
+        "height": 99
+      },
+      "text": "0,938",
+      "style": {
+        "fontSize": 86,
+        "typeface": "Arial",
+        "color": "#007D76",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/ap83u5w7",
+      "kind": "textbox",
+      "name": "NDCG@10\nпо человеческим меткам",
+      "position": {
+        "left": 704,
+        "top": 410,
+        "width": 512,
+        "height": 90
+      },
+      "text": "NDCG@10\nпо человеческим меткам",
+      "style": {
+        "fontSize": 31,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/ho3mh4v2",
+      "kind": "textbox",
+      "name": "Отобранный пул, не поиск по полному корпусу",
+      "position": {
+        "left": 64,
+        "top": 560,
+        "width": 1152,
+        "height": 51
+      },
+      "text": "Отобранный пул, не поиск по полному корпусу",
+      "style": {
+        "fontSize": 36,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/gnal8juh",
+      "kind": "textbox",
+      "name": "Нельзя напрямую сравнивать с другими моделями на",
+      "position": {
+        "left": 64,
+        "top": 642,
+        "width": 1135,
+        "height": 38
+      },
+      "text": "Нельзя напрямую сравнивать с другими моделями на всех 1 179 запросах.",
+      "style": {
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#51646A",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    }
+  ]
+}

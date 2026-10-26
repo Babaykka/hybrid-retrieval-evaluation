@@ -1,0 +1,420 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/pbnfvo",
+    "id": "pbnfvo",
+    "slide": 8,
+    "layoutId": "db23c5cc-5b0f-4a2e-a488-68875c76dd83",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "01f1e72e-483e-4f9b-a3d6-8ae60465ed9d",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "db23c5cc-5b0f-4a2e-a488-68875c76dd83",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "01f1e72e-483e-4f9b-a3d6-8ae60465ed9d",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "01f1e72e-483e-4f9b-a3d6-8ae60465ed9d",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pgra9krq",
+      "id": "1",
+      "name": "Доразметка меняет оценку NDCG@10",
+      "bbox": [
+        64,
+        48,
+        1152,
+        112
+      ],
+      "geometry": "rect",
+      "text": "Доразметка меняет оценку NDCG@10",
+      "textPreview": "Доразметка меняет оценку NDCG@10",
+      "resolvedFontSize": 43,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 43,
+        "typeface": "Arial",
+        "color": "#182B30",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Доразметка меняет оценку NDCG@10"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Доразметка меняет оценку NDCG@10",
+          "resolvedTextStyle": {
+            "fontSize": 43,
+            "typeface": "Arial",
+            "color": "#182B30",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Доразметка меняет оценку NDCG@10",
+              "fontSize": 43,
+              "typeface": "Arial",
+              "color": "#182B30",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2t0ry5sz",
+      "id": "2",
+      "name": "08",
+      "bbox": [
+        1104,
+        681,
+        112,
+        22
+      ],
+      "geometry": "rect",
+      "text": "08",
+      "textPreview": "08",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "08"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "08",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "08",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3e9s7a9k",
+      "id": "3",
+      "name": "RRF: объединение выдач BM25, E5 и BGE по обратны",
+      "bbox": [
+        64,
+        162,
+        1152,
+        35
+      ],
+      "geometry": "rect",
+      "text": "RRF: объединение выдач BM25, E5 и BGE по обратным рангам",
+      "textPreview": "RRF: объединение выдач BM25, E5 и BGE по обратным рангам",
+      "resolvedFontSize": 26,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 26,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "RRF: объединение выдач BM25, E5 и BGE по обратным рангам"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "RRF: объединение выдач BM25, E5 и BGE по обратным рангам",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "RRF: объединение выдач BM25, E5 и BGE по обратным рангам",
+              "fontSize": 26,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "chart",
+      "scope": "slide",
+      "aid": "ch/0bmdwzql",
+      "id": "4",
+      "bbox": [
+        64,
+        205,
+        1152,
+        367
+      ],
+      "chartType": "bar"
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hs7a50ru",
+      "id": "5",
+      "name": "Изменение E5: +0,391   95%-ный ДИ [0,365; 0,417]",
+      "bbox": [
+        64,
+        594,
+        1145,
+        42
+      ],
+      "geometry": "rect",
+      "text": "Изменение E5: +0,391   95%-ный ДИ [0,365; 0,417]",
+      "textPreview": "Изменение E5: +0,391   95%-ный ДИ [0,365; 0,417]",
+      "resolvedFontSize": 28,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 28,
+        "typeface": "Arial",
+        "color": "#007F78",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Изменение E5: +0,391   95%-ный ДИ [0,365; 0,417]"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Изменение E5: +0,391   95%-ный ДИ [0,365; 0,417]",
+          "resolvedTextStyle": {
+            "fontSize": 28,
+            "typeface": "Arial",
+            "color": "#007F78",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Изменение E5: +0,391   95%-ный ДИ [0,365; 0,417]",
+              "fontSize": 28,
+              "typeface": "Arial",
+              "color": "#007F78",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/upgruls3",
+      "id": "6",
+      "name": "NDCG@10 внутри пулов. Общий идеальный знаменател",
+      "bbox": [
+        64,
+        642,
+        1135,
+        38
+      ],
+      "geometry": "rect",
+      "text": "NDCG@10 внутри пулов. Общий идеальный знаменатель для запроса и набора меток.",
+      "textPreview": "NDCG@10 внутри пулов. Общий идеальный знаменатель для запроса и набора меток.",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "NDCG@10 внутри пулов. Общий идеальный знаменатель для запроса и набора меток."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "NDCG@10 внутри пулов. Общий идеальный знаменатель для запроса и набора меток.",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "NDCG@10 внутри пулов. Общий идеальный знаменатель для запроса и набора меток.",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

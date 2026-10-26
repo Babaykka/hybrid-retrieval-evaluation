@@ -1,0 +1,17 @@
+\section*{Reviewers' Remarks and Authors' Responses}
+\noindent Submission 90. DAMDID 2026.
+
+\paragraph{Reviewer 1: explanation and examples.}
+\emph{Remark, summarized and translated from Russian.} The paper contains the necessary research sections, but the meaning of deep re-annotation is unclear. The reviewer finds the English presentation difficult to follow and requests concrete examples to explain the main concepts.
+
+\emph{Response.} The Abstract and Introduction now define deep re-annotation as extending judgments over multiple candidate answers in a selected pool. The definition distinguishes annotation coverage from neural-network depth and from exhaustive annotation of the corpus. The Introduction also explains that denser judgments change the evaluation of fixed rankings, rather than improve the retrieval model itself. Section~\ref{sec:example} and Table~\ref{tab:annotation-example} provide a real MS MARCO query, passage identifiers, shortened passage descriptions, and before/after labels. The example shows why an unjudged correct answer receives no credit under sparse qrels.
+
+\paragraph{Reviewer 2: overall assessment.}
+\emph{Remark, summarized.} The reviewer considers the dataset-improvement problem important, the results valuable, and the strategy justified, and supports publication as a full paper.
+
+\emph{Response.} We thank the reviewer for this assessment. No specific additional change was requested.
+
+\paragraph{Reviewer 3: other providers and universality.}
+\emph{Remark, summarized.} Are counterparts of MS MARCO available from Google, Yandex, or Yahoo? How universal is MS MARCO given differences in search-engine use between countries and social groups? The reviewer suggests explaining the choice of MS MARCO in the Introduction.
+
+\emph{Response.} Two paragraphs have been added to the Introduction. They discuss Google's Natural Questions, Yahoo!'s Learning to Rank Challenge, and Yandex's Personalized Web Search Challenge with references to their source publications or dataset pages. The text distinguishes text-based question answering, ranking feature vectors, and anonymized interaction logs, rather than treating these resources as interchangeable passage-ranking datasets. MS MARCO is motivated by accessible texts, sparse judgments, established evaluation tools, and pretrained models. The Introduction explicitly states that differences between countries or social groups were not measured and that the collection is not a universal sample of information needs.

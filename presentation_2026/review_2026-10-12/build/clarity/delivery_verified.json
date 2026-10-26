@@ -1,0 +1,44 @@
+{
+  "status": "pass",
+  "pixel_identical_slides": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    12,
+    13,
+    14,
+    17,
+    19,
+    20,
+    21,
+    23,
+    24,
+    25,
+    26
+  ],
+  "changed_slides_visually_reviewed": [
+    8,
+    9,
+    10,
+    11,
+    15,
+    16,
+    18,
+    22
+  ],
+  "notes_match_speech": true,
+  "docx_pages_reviewed": 12,
+  "metadata_scan": "pass",
+  "numbers_and_workbooks_preserved": true,
+  "files": {
+    "DAMDID_2026_Презентация_RU.pptx": "5e5c87beec2cf56b8ee3088355621901612c92052fb304c41db7c943f9e84fb5",
+    "DAMDID_2026_Презентация_RU.pdf": "111195e26a487f46f5dd931903baf88ec1bd8233d822e6c0c96817a975cecf35",
+    "DAMDID_2026_Текст_выступления_RU.docx": "02721e96751560e4dcdb5ea8288d8beb86afa4065993e90a9d237aa71b101bf2"
+  },
+  "archive": "./DAMDID_2026_Уточненная_версия.zip",
+  "archive_sha256": "abe75723d7a2984f60d63c79348672031fa10243fcf987b8b2493134e2f043a9"
+}

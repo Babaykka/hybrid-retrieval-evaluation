@@ -1,0 +1,638 @@
+Deep Re-annotation and Controlled Candidate
+Pools for Re-evaluating Ranking Models on MS
+MARCO
+ 1,  1, and  1
+MoscowStateUniversity,Moscow,Russia
+Abstract. Sparse relevance judgments can leave correct answers uncred-
+ited when retrieval systems are evaluated. We study additional manual
+annotationonEnglishMSMARCOusing1179queriesand33667pooled
+query–passagepairs.Here,deepre-annotationmeansjudgingmultiplecan-
+didateanswerswithinadefinedpool,ratherthanassumingthattheorigi-
+nalpositivepassageexhauststherelevantanswers.Withunchangedrank-
+ings, the mean number of positive judgments increases from 1.05 to 17.47
+perquery.Underacommonpool-basednormalizationandthesamequery
+set, NDCG@10 increases from 0.248 to 0.644 for BM25 and from 0.488
+to 0.879 for E5. A compact cross-encoder judge achieves held-out ROC-
+AUC 0.907 and is used to generate pseudo-labels for 101093 queries. We
+recomputetheselabelsfromsavedscoresatafixedthresholdandanalyze
+poolingdepthsfrom10to200.Candidateselectionchangesbothlabelcov-
+erage and the interpretation of rank-fusion results. The findings concern
+the evaluated pools and do not imply exhaustive relevance annotation of
+thecorpusorgeneralizationacrosssearchprovidersanduserpopulations.
+Keywords: Information retrieval · MS MARCO · relevance judgments ·
+re-annotation·pooling·reciprocalrankfusion
+1 Introduction
+Information retrieval evaluation requires queries, documents, and judgments of
+whichdocumentssatisfyeachquery.MSMARCOisawidelyusedcollectionbuilt
+from real Bing search queries [1]. Its passage-ranking task provides query and
+passage texts and sparse relevance judgments, commonly called qrels, short for
+query relevance judgments [2]. Most queries in the labeled development subset
+have only one positive passage. Other acceptable answers may remain unjudged
+and therefore contribute no gain to the evaluation metric.
+MS MARCO is one of several search-provider datasets, not a universal sam-
+pleofinformationneeds.Google’sNaturalQuestionscontainsrealsearchqueries
+with human answer annotations on Wikipedia pages [3]. Yahoo!’s Learning to
+RankChallengereleasedtwosetsofquery–documentfeaturevectorsandgraded
+relevancelabelswithoutqueryordocumenttext[4].Yandex’sPersonalizedWeb
+Search Challenge released session and click logs with anonymized identifiers
+ratherthanreadablequeriesanddocuments[5].Theseareusefulcounterpartsin
+
+--- PAGE ---
+
+2 P.etal.
+search research, but their tasks and released representations differ from passage
+ranking.
+We focus on MS MARCO because its accessible texts, sparse human judg-
+ments,establishedevaluationtools,andpretrainedmodelssupportcomparisons
+with prior work. The sparse judgments also provide a direct setting for study-
+ing additional annotation. This choice does not establish universality: provider-
+specificsampling,language,queryintent,anddocumentdomainmayaffecttrans-
+fer.Differencesbetweencountriesorsocialgroupsarenotmeasuredinthisstudy.
+By deep re-annotation we mean extending relevance judgments across the
+candidate documents in a defined pool. “Deep” refers to annotation coverage,
+not neural-network depth or repeated training. It does not mean that the entire
+corpushasbeen exhaustivelyjudged.Forexample,aquery aboutwhyaliquid’s
+boilingpointincreasesmayhaveseveralpassagesexplainingtheadditionofsalt.
+If only one passage is in the original qrels, another correct explanation receives
+zero gain until it is judged. Section 3.3 gives an actual example with passage
+identifiers and before/after labels.
+Theretrievalrankingsareheldfixedwhencomparingoriginalandhumanla-
+bels.Thus,anincreaseinmeasuredNDCGafterannotationdoesnotmeanthat
+a retrieval model itself has improved. It means that its existing output is evalu-
+atedagainstmorecompletejudgments.Asecondpartofthestudyusesalearned
+judge to extend label coverage to larger candidate pools. These predictions are
+called pseudo-labels to distinguish them from human judgments.
+We address three questions: (1) how does additional manual annotation
+change label coverage and measured ranking quality; (2) how well does a com-
+pactjudgeagreewithheld-outhumanlabels;and(3)howdopoolingdepthand
+the input depth of Reciprocal Rank Fusion (RRF) [13] affect evaluation? The
+contribution is an analysis of annotation and evaluation choices, rather than a
+new retrieval architecture.
+2 Related Work
+MSMARCOsupportsbothtrainingandevaluationofneuralretrievalmodels[1].
+The mMARCO dataset extends passage ranking to multiple languages through
+translation[6];itsRussianportionalsoappearsinRusBEIR[7].Ourexperiments
+use English query and passage texts. Beyond a single provider, BEIR evaluates
+retrieval across 18 datasets with different tasks and domains [8]. Cross-dataset
+evaluation addresses transfer across collections, but does not by itself establish
+demographic representativeness.
+BM25 is a lexical baseline based on term matching, term frequency, and
+document-length normalization [9]. Dense bi-encoders such as E5 and BGE rep-
+resent a query and a document separately and compare their vectors [10,11].
+Cross-encoders instead process the query and candidate jointly, allowing token-
+level interactions at a higher computational cost [12]. These distinctions matter
+because different systems can contribute different relevant passages to a pool.
+
+--- PAGE ---
+
+DeepRe-annotationandControlledCandidatePools 3
+Pooling is a standard test-collection construction method: top-ranked docu-
+ments from several sources are merged and assessed by humans [15]. It reduces
+annotation effort but makes label coverage depend on the contributing systems
+anddepth.RRFcombinesinputrankswithouttrainingascore-calibrationmodel
+[13]. Its behavior can depend on truncation, the input systems, and fusion pa-
+rameters[14].Ourevaluationthereforestatesboththecandidate-pooldefinition
+and the rankings supplied to fusion.
+3 Data and Manual Re-annotation
+3.1 Source Collection and Candidate Pool
+The English MS MARCO passage corpus contains 8,841,823 passages. The of-
+ficial development qrels used here contain 7,437 positive pairs for 6,980 queries
+[2]. The manual subset contains 1179 queries and 33667 distinct query–passage
+pairs, with 28.56 candidates per query on average and a maximum of 63. The
+larger pseudo-labeling experiment uses 101093 queries with saved ranked lists;
+this set is not identical to the 6,980-query labeled development subset.
+The manual pool was assembled by combining query-based retrieval results
+with auxiliary candidate-selection channels. Each query has ten entries in the
+saved BM25, E5, and BGE rankings. The annotation data also retain the auxil-
+iary channels named e5-rerank and s0–s3. They contribute candidates beyond
+the three query-only lists. In particular, 6,258 pairs have no score in BM25,
+E5, BGE, or e5-rerank; 35 pools contain more than 40 documents. Thus, the
+annotation pool includes additional candidates beyond the four named top-ten
+lists.
+Candidate preparation also used E5-based similarity to a known relevant
+answer, as part of the reference-assisted annotation procedure. This signal has
+access to answer information unavailable to ordinary query-only retrieval. The
+full pool is retained for annotation analysis. The controlled ranking comparison
+uses BM25, E5, BGE, and their three-way RRF; auxiliary channels contribute
+to pooling but are excluded from system-level comparisons because their model
+provenanceisnotestablished.Thefull-setrankingsuseintfloat/e5-small-v2
+and BAAI/bge-small-en-v1.5. These identifiers describe the full-set runs; the
+exact configurations of the auxiliary manual-pool channels remain unspecified.
+3.2 What the Assessor Judged
+For each selected pair, the assessor saw the query, the candidate passage, and
+the original relevant MS MARCO passage. The task was to decide whether the
+candidate answered the same information need. Showing the reference passage
+helped align the interpretation with the initial annotation; it did not require
+the candidate to reproduce the reference wording. Pooling followed by these
+additional judgments is the deep re-annotation studied here.
+The annotation records distinguish a seed-positive category and newly pos-
+itive documents. For the sparse baseline, we use the official development qrels
+
+--- PAGE ---
+
+4 P.etal.
+Table 1. Annotation coverage within the same manual candidate pool. Automatic pre-
+dictionsarenotadditionalhumanassessments.
+Quantity Original Human Judge
+Queries 1179 1179 1179
+Candidatepairs 33667 33667 33667
+Positivepairs 1243 20597 22206
+Positivesperquery,mean 1.05 17.47 18.83
+Positivesperquery,median 1 17 19
+directly, intersected with the stored pool, rather than infer original relevance
+from the annotation category. This produces 1243 positive pairs. Fourteen seed-
+marked pairs absent from the official qrels remain part of the extended human
+labels, but are not counted as official positives.
+Human-positive labels cover 20597 pairs. There are also 13,041 explicit neg-
+ative assessments and 29 nonstandard category values whose meaning is not
+established. The latter are left unjudged: they receive no gain at their original
+ranking positions, rather than being presented as verified negative assessments.
+Five passage-text fields are empty. A sensitivity analysis excludes all 23 queries
+affected by nonstandard labels or empty texts. The remaining 1,156 queries pre-
+serve the ranking order and the main annotation effect (Section 5).
+Thenumberofqueriesdoesnotincreaseduringmanualre-annotation.What
+changes is the number of positive judgments within the same pool: the mean
+rises from 1.05 to 17.47, and the median from 1 to 17. These values characterize
+selected candidate sets and are not estimates of the total number of relevant
+passages in the corpus.
+3.3 A Concrete Example
+Table 2 illustrates query 1086224, “what causes boiling point to increase”. The
+original positive passage explains that adding salt raises the boiling point. A
+second passage gives the same relevant explanation using the term “non-volatile
+solute”,butisabsentfromthesparseqrels.Apassagereportingacetone’sboiling
+temperature does not explain the requested cause and has a negative human
+judgment in this pool.
+Consider a system that returns passage 7399382 first. The sparse evaluation
+gives this result zero gain, although the passage addresses the question. After
+manualassessmentitcontributespositivegain,whilethesystemoutputstaysun-
+changed. This example distinguishes missing judgments from incorrect retrieval
+and explains why several relevant passages per query matter. It illustrates the
+procedure, not the frequency of any particular error across the collection.
+
+--- PAGE ---
+
+DeepRe-annotationandControlledCandidatePools 5
+Table2.Examplefromthemanualdata.Passagedescriptionsareshortenedparaphrases,
+notnewjudgments.“Unjudged”meansabsentfromtheoriginalpositiveqrels.
+PassageID Passagecontent Original Human
+7112148 Addingsalttowaterincreasesitsboilingpoint. Relevant Relevant
+7399382 Addinganon-volatilesolute,suchassalt,raises Unjudged Relevant
+asolvent’sboilingpoint.
+987600 Reportstheboilingtemperatureofacetone. Unjudged Notrelevant
+4 Judge and Evaluation Protocol
+4.1 Purpose and Input of the Judge
+Exhaustive human assessment of tens of millions of selected pairs is impractical.
+The judge transfers the signal of the manual judgments to larger pools. BM25,
+E5, and BGE continue to generate the candidates; the judge assigns relevance
+scorestoalreadyselectedpairs.Itsagreementwithhumanlabelsmusttherefore
+be established separately from retrieval effectiveness.
+We use the compact cross-encoder/ms-marco-MiniLM-L6-v2 model
+[16,17].1 It processes the query and candidate passage jointly, unlike the
+separate encodings used by E5 and BGE. Its input contains the two texts
+only: no retrieval embeddings, ranks, fusion scores, or known relevant answer
+are supplied. MiniLM was selected as a public, computationally feasible MS
+MARCO baseline, not as the strongest available relevance judge.
+Theoriginaltrainingexperimentsplitall1,179queriesinto825training,177
+validation, and 177 test queries, comprising 23,543, 5,122, and 5,002 pairs. The
+split uses query-group shuffling with seed 42, so a query cannot appear in more
+thanonesubset.Fine-tuningusedtwoepochs,batchsize16,maximumsequence
+length 512, and 100 warmup steps. That training run mapped categories 1 and
+2 to positive and the remaining categories to zero; the 29 unresolved categories
+arealimitationoftheinheritedtraininglabels.Thecurrentevaluationdoesnot
+relabel them as human-confirmed negatives.
+Thethresholdselectedonvalidationisτ =−0.2187178284.Thebasemodel’s
+recordedvalidationROC-AUCis0.865.Werecomputeagreementfromthesaved
+fine-tuned scores on the same split and regenerate pseudo-qrels consistently as
+yˆ(q,d)=I[s(q,d)≥τ]. (1)
+All pseudo-label counts and threshold diagnostics use Eq. 1 with the same
+validation-selected threshold.
+1 https://huggingface.co/cross-encoder/ms-marco-MiniLM-L6-v2
+
+--- PAGE ---
+
+6 P.etal.
+a Manual annotation and judge calibration
+Manual pool Human relevance Judge training
+1,179 queries labels and calibration
+Fixed judge and threshold
+b Full-set protocol
+BM25 / E5 / BGE Judge inference Pseudo-labels Evaluation
+Top-K union s(q, d) s(q, d) ≥ τ NDCG@10
+Ranked lists: BM25, E5, BGE, RRF(3)
+Fig.1. The manual-annotation and automatic-labeling stages. Human labels supervise
+thejudge;retrievalsystemssupplycandidatepassages.
+4.2 Controlled Pools and Rank Fusion
+Let L (q) denote the saved ranking of system m for query q. For the larger
+m
+query set, the pool at depth K is
+∪
+P(K) = TopK(L (q)), K ∈{10,30,50,100,200}. (2)
+q m
+m∈{BM25,E5,BGE}
+Duplicates are removed by passage identifier. The judge’s stored score is a prop-
+erty of the query–passage pair and is reused at every depth; enlarging the pool
+does not change that score. Pseudo-relevant passages are R(K) = {d ∈ P(K) :
+q q
+yˆ(q,d)=1}.
+Three-way fusion, denoted RRF(3), combines only BM25, E5, and BGE:
+∑
+1
+RRF (d|q)= . (3)
+K 60+rank (d,q)
+m:d∈TopK(Lm(q)) m
+An absent document contributes zero for that input list. Ties are broken by
+ascending numeric passage identifier. In the manual experiment the available
+lists have depth ten. In the full-set experiment both pool depth and the input
+depthofRRF vary.Thesearetwodistinctchanges:theretrievers’owntop-ten
+K
+rankingsremainfixed,whereasthefusedtoptenmaychangewhendeeperinput
+lists are supplied. An additional analysis fixes fusion input at 200 while varying
+only the assessment pool.
+
+--- PAGE ---
+
+DeepRe-annotationandControlledCandidatePools 7
+4.3 Metrics and Statistical Tests
+NDCG@10 is normalized discounted cumulative gain at the first ten positions.
+With binary relevance, the numerator rewards relevant passages more strongly
+at earlier ranks. For a fixed pool and label set,
+∑10
+y(q,L (q) )
+DCG@10(q,m)= m i , (4)
+log (i+1)
+i=1 2
+min(∑10,|Rq |)
+1
+IDCG@10(q)= , (5)
+log (i+1)
+i=1 2
+DCG@10(q,m)
+NDCG@10(q,m)= . (6)
+IDCG@10(q)
+The ideal denominator is shared by all systems for that query and label set. It
+is computed from all positive judgments in the pool, not only from positives
+retrieved by the particular system. A query with no retrieved positives receives
+zero. If the pool has no positive judgments, its NDCG is defined as zero for
+every system. All reported system means use the same query set; no system-
+specific successful-query filter is applied. Unjudged passages retain their rank
+positions and contribute zero gain. These remain pool-based evaluations rather
+than full-corpus leaderboard scores.
+Manual before/after comparisons use all 1,179 queries. We calculate paired
+query-level differences, 95% percentile bootstrap intervals with 5,000 resamples,
+andtwo-sidedpairedsign-fliptestswith10,000randomizations.TheMonteCarlo
+estimate uses the correction (b+1)/(B+1), where b is the number of random-
+ized absolute effects at least as large as the observed effect. The four manual
+annotation-effect tests are also checked against a Bonferroni familywise level of
+0.05. Full-set intervals use the resampling settings reported with Table 5; the
+query, rather than the individual passage, remains the resampling unit.
+5 Results of Manual Re-annotation
+Table 3 compares identical rankings under official sparse labels and additional
+human judgments. Every reported change is both a difference of means and a
+mean paired difference, because both columns contain the same 1,179 queries.
+The changes describe evaluation sensitivity to annotation coverage, not retrain-
+ing of the retrieval models.
+All four mean changes are positive, their confidence intervals exclude zero,
+and the paired tests give p<0.001, including the familywise correction. E5 has
+the highest human-label NDCG among the three query-only retrievers. RRF(3)
+liesbetweenE5andBGE;itdoesnotimproveonE5inthismanualsetting.These
+comparisons concern the query-only retrievers and their fusion; the auxiliary
+annotation channels are outside the system-level comparison.
+Excluding the 23 queries with unresolved category values or missing passage
+text leaves 1,156 queries. Human-label NDCG remains 0.644 for BM25, 0.879
+
+--- PAGE ---
+
+8 P.etal.
+Table 3. Pooled NDCG@10 before and after manual annotation on all 1,179 queries.
+These are not full-corpus leaderboard scores. ∆ is human minus original; intervals are
+paired95%bootstrapintervals.
+System Original Human ∆ 95%CI
+BM25 0.248 0.644 +0.396 [0.372,0.419]
+E5 0.488 0.879 +0.391 [0.365,0.417]
+BGE 0.433 0.828 +0.395 [0.369,0.419]
+RRF(3) 0.459 0.854 +0.395 [0.371,0.419]
+Original (official) Human
+a Mean NDCG@10 b Paired gain (95% CI)
+BM25
+E5
+BGE
+RRF(3)
+0.0 0.5 1.0 +0.36 +0.38 +0.40 +0.42
+NDCG@10 ΔNDCG@10
+(Human − original)
+Fig.2.Manual-poolevaluationonthesame1,179querieswithasharedidealdenomina-
+tor. The paired effect intervals reflect uncertainty across queries, not variation between
+independentlytrainedmodels.
+for E5, 0.828 for BGE, and 0.855 for RRF(3), with the same system order. This
+checklimitstheinfluenceofthosedata-qualityissuesonthemanualcomparison,
+but it does not substitute for a new assessment of ambiguous labels or an inter-
+assessor agreement study.
+5.1 Judge Agreement and Its Interpretation
+Table 4 separates the recorded base-model validation result from agreement re-
+computed using the saved fine-tuned scores. On the held-out test queries, the
+fine-tunedjudgehasROC-AUC0.907,F10.875,precision0.851,andrecall0.902.
+The threshold is held fixed after validation.
+As an additional check of its behavior under the original judgments, ranking
+the entire manual candidate pool by judge score on the 177 held-out queries
+
+--- PAGE ---
+
+DeepRe-annotationandControlledCandidatePools 9
+Table 4. Judge agreement. The base validation AUC is the recorded training baseline;
+fine-tunedmetricsarerecomputedfromsavedscores.P:precision;R:recall.
+Model/subset Queries Pairs AUC F1 P R
+Base/validation 177 5122 0.865 – – –
+Fine-tuned/validation 177 5122 0.908 0.868 0.829 0.912
+Fine-tuned/test 177 5002 0.907 0.875 0.851 0.902
+1.0
+0.5
+0.0
+0.0 0.5 1.0
+FPR
+RPT
+a ROC: annotated pool
+0.2
+0.1
+AUC = 0.955
+n = 33,633
+0.0
+−10 −5 0 5 10
+Judge score
+ytisneD
+b Judge scores
+Non-relevant
+Relevant
+τ = −0.219
+Fig.3.Scorediagnosticsonmanualpairswithstandardlabelsandnonemptytext.This
+poolincludestrainingqueries;thefigureisnotanindependenttest-setestimate.Held-out
+agreementisreportedseparatelyinTable4.
+gives NDCG@10 0.512 with official labels and 0.938 with human labels. This is
+conditionalrerankingofanalreadyenrichedpool.Itisnotthejudge’sfirst-stage
+retrievalperformanceonthefullcorpus,anddoesnotestablishthatitisstronger
+than all candidate-generating systems.
+Applying Eq. 1 to all saved manual-pool scores yields 22206 pseudo-positive
+pairs, or 18.83 per query, versus 20597 human positives. A larger number of
+predictionsisnotevidenceofmoreaccurateannotation:falsepositivesandfalse
+negatives must both be considered. Human labels remain the basis for assessing
+judge quality; pseudo-labels are an experimental instrument for the larger pool
+study.
+6 Full-set Pseudo-labeling and Pool Depth
+The full-set analysis regenerates labels from stored query–passage scores with
+the same threshold at every depth. Table 5 reports candidate coverage, positive-
+
+--- PAGE ---
+
+10 P.etal.
+Table 5. Full-set pseudo-label evaluation on all 101,093 queries, including zero-
+positive pools. Pool and positive counts are means per query; system columns are
+NDCG@10. RRF input depth equals K. Paired intervals and tests use 2,000 query re-
+samples/randomizations,seed20260914.
+K Pool Positive BM25 E5 BGE RRF(3)
+10 21.88 14.19 0.649 0.871 0.851 0.852
+30 65.85 33.71 0.638 0.851 0.832 0.862
+50 110.36 49.42 0.635 0.847 0.829 0.856
+100 222.91 81.02 0.633 0.844 0.825 0.851
+200 451.54 128.64 0.632 0.842 0.824 0.850
+label counts, and ranking metrics on a common query set. At depth ten there
+are 21.88 candidates and 14.19 pseudo-positive passages per query on average.
+At depth 200 the corresponding values are 451.54 and 128.64.
+RRF(3) is below E5 at K = 10 (0.852 versus 0.871), but above it at all
+four larger tested depths. At K = 200, the paired difference is +0.0088, with
+95% CI [0.0082,0.0095]. All five depth-specific contrasts have unadjusted paired
+p < 0.001; they also pass a Bonferroni correction for these five comparisons at
+level0.05.Thisisagreementwiththefixedjudge,notindependentlyestablished
+human relevance superiority.
+Theindividualretrievers’top-tenDCGvaluesstayconstantasK grows:only
+their shared ideal denominator changes. In contrast, deeper RRF inputs can
+change the fused ranking itself. Keeping fusion input fixed at 200 gives NDCG
+0.805 at assessment depth ten and 0.850 at depth 200. At depth ten, 145643 of
+its returned query–passage pairs lie outside the assessed pool and receive zero
+gain. This diagnostic separates missing judgments from the effect of truncating
+fusion inputs.
+All 1,179 manual queries occur in the full set, so the full-set analysis is
+not a wholly independent held-out evaluation. Excluding them leaves 99914
+queries. At depth 200 the RRF-minus-E5 difference is still +0.0088 (95% CI
+[0.0080,0.0094]), and the direction of all five depth comparisons is unchanged.
+Thescoreauditcoversall45647587candidatepairswithnomissingscores;1592
+queries have no positive prediction at depth 200.
+Theconditionalmeannumberofpositivesatdepth200is130.70whenqueries
+without a positive prediction are excluded. The unconditional mean is 128.64.
+Bothusethesametotalpositivecountbutdifferentdenominators.Consequently,
+a statement such as “about 130 relevant documents per query” must specify the
+candidate pool, the judge, the threshold, and whether zero-positive queries are
+included. It is not an estimate of the true relevance density of the full corpus.
+
+--- PAGE ---
+
+DeepRe-annotationandControlledCandidatePools 11
+400
+300
+200
+100
+0
+10 30 50 100 200
+Pooling depth K (log scale)
+yreuq
+/
+stnemucod
+naeM
+a Pool growth
+0.90
+Candidates
+Pseudo-positive
+0.80
+0.70
+0.60
+10 30 50 100 200
+Pooling depth K (log scale)
+01@GCDN
+naeM
+b NDCG@10
+BM25 BGE
+E5 RRF(3)
+Fig.4.Candidatecoverage,pseudo-labeldensity,andrankingbehavioraspoolingdepth
+changes. All systems at a given depth share the same judgments and query set. RRF
+inputtruncationisdistinguishedfromannotation-poolsize.
+7 Limitations and Discussion
+Annotation and pooling. Human assessment covers selected candidates, not the
+whole corpus. The use of a known answer during candidate preparation and hu-
+man judging enriches the pool and can anchor the interpretation of relevance.
+This helps find alternative answers but may underrepresent other valid inter-
+pretations of an ambiguous query. Exact attribution of every auxiliary channel
+andindependentinter-assessoragreementareoutsidethecontrolledcomparison.
+Nonstandard labels and empty texts are documented, and the query-exclusion
+sensitivity check does not remove all possible annotation errors.
+Judge quality. MiniLM is a baseline cross-encoder. Its held-out agreement sup-
+ports using it for a controlled score-based analysis, but its pseudo-labels are
+not human ground truth. Diagnostics that include training queries must not be
+confused with held-out estimates. The original training’s handling of unresolved
+labelcategoriesisanotherlimitation.Largerormorerecentrerankers,including
+BGE cross-encoder variants, may produce different labels and system compar-
+isons.
+The automatic judge in this experiment receives a query and candidate only.
+Thisisadeliberatelyrestrictedbaseline,notarequirementthatanassessormust
+have the same information as a retrieval system. A known relevant answer can
+legitimately be provided to the judge without providing it to the retriever. A
+future reference-conditioned judge should therefore use “query, known relevant
+
+--- PAGE ---
+
+12 P.etal.
+answer,candidatepassage”andbeevaluatedagainstheld-outhumanjudgments.
+No comparison with such a model is claimed here.
+Evaluation and transfer. BoththedefinitionofIDCGandthetreatmentofzero-
+positivequeriesaffectreportedmeans.Poolexpansionmaychangetheavailable
+labels, while deeper RRF inputs may additionally change the ranking. The two
+effects should be reported separately. Pseudo-labeling also cannot establish that
+a model is universally better merely because it agrees more closely with this
+particular judge.
+OurfindingsconcernEnglishMSMARCOandtheevaluatedpools.Provider,
+language, intent, and document-domain differences may change the results. Ge-
+ographic or social-group transfer has not been tested, and no population repre-
+sentativeness is claimed. Evaluation on heterogeneous collections such as BEIR
+is a natural next step [8]; multilingual translation alone would not establish
+demographic coverage.
+8 Conclusion
+Deep re-annotation in this study means increasing the coverage of human rele-
+vance judgments inside a defined candidate pool. On 1,179 queries, additional
+judgments increase the mean positive count from 1.05 to 17.47. Measured
+NDCG@10 rises for BM25, E5, BGE, and RRF(3) when the same rankings and
+query set are evaluated against these denser labels. E5 remains the best of the
+three query-only retrievers in the manual experiment.
+The MiniLM judge enables a larger controlled pseudo-labeling analysis and
+reaches held-out ROC-AUC 0.907. Its input is intentionally restricted to query
+and candidate text. Future work should compare stronger cross-encoders and
+a judge conditioned on the known relevant answer, using the format “query,
+known relevant answer, candidate passage”. Such a study would test the value
+of reference information for assessment rather than assume that the current
+baseline is optimal.
+Candidate-pooldepthisessentialforinterpretingthefull-setresults.RRF(3)
+is below E5 at input depth ten but above it at the four larger tested depths
+under the judge’s labels. Positive-label counts depend on which documents are
+scored, and rank fusion also depends on the depth of its input lists. Neither a
+highpseudo-positivecountnorafusionadvantagecanbetransferredtoanother
+evaluation setting without checking these conditions.
+In practical terms, additional annotation and automatic pseudo-labeling are
+useful research instruments when the candidate selection, normalization, thresh-
+old,andevaluationpopulationareexplicit.Re-evaluatingMSMARCOtherefore
+concerns both improving judgment coverage and defining a consistent measure-
+ment procedure, with transfer beyond this collection left to further empirical
+validation.
+
+--- PAGE ---
+
+DeepRe-annotationandControlledCandidatePools 13
+References
+1. Bajaj, P., Campos, D., Craswell, N., et al.: MS MARCO: A Human Generated MA-
+chine Reading COmprehension Dataset. arXiv:1611.09268 (2016). https://arxiv.
+org/abs/1611.09268
+2. Microsoft:MSMARCOdatasetsandpassage-rankingresources.https://microsoft.
+github.io/msmarco/Datasets.Accessed14September2026.
+3. Kwiatkowski,T.,Palomaki,J.,Redfield,O.,etal.:NaturalQuestions:ABenchmark
+forQuestionAnsweringResearch.TransactionsoftheAssociationforComputational
+Linguistics7(2019).https://doi.org/10.1162/tacl_a_00276
+4. Chapelle, O., Chang, Y.: Yahoo! Learning to Rank Challenge Overview. In: Pro-
+ceedings of the Learning to Rank Challenge. PMLR 14, pp. 1–24 (2011). https:
+//proceedings.mlr.press/v14/chapelle11a.html
+5. Yandex:PersonalizedWebSearchChallenge.Kagglecompetition(2013–2014).https:
+//www.kaggle.com/c/yandex-personalized-web-search-challenge.Accessed14
+September2026.
+6. Bonifacio, L., Jeronymo, V., Abonizio, H.Q., Campiotti, I., Fadaee, M., Lotufo, R.,
+Nogueira, R.: mMARCO: A Multilingual Version of MS MARCO Passage Ranking
+Dataset.arXiv:2108.13897(2021).https://arxiv.org/abs/2108.13897
+7. , G., Tikhomirov, M., Kozhevnikov, E., Kornilov, M., , N.:
+BuildingRussianBenchmarkforEvaluationofInformationRetrievalModels.Compu-
+tational Linguistics and Intellectual Technologies (2025). https://arxiv.org/abs/
+2504.12879
+8. Thakur, N., Reimers, N., Rücklé, A., Srivastava, A., Gurevych, I.: BEIR: A Het-
+erogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models.
+Proceedings of the Neural Information Processing Systems Track on Datasets and
+Benchmarks1(2021).https://arxiv.org/abs/2104.08663
+9. Robertson, S.E., Zaragoza, H.: The Probabilistic Relevance Framework: BM25 and
+Beyond.FoundationsandTrendsinInformationRetrieval3(4),333–389(2009).
+10. Wang,L.,Yang,N.,Huang,X.,Jiao,B.,Yang,L.,Jiang,D.,Majumder,R.,Wei,F.:
+TextEmbeddingsbyWeakly-SupervisedContrastivePre-training.arXiv:2212.03533
+(2022).https://arxiv.org/abs/2212.03533
+11. Xiao,S.,Liu,Z.,Zhang,P.,Muennighoff,N.,Lian,D.,Nie,J.-Y.:C-Pack:PackedRe-
+sources for General Chinese Embeddings. arXiv:2309.07597 (2023). https://arxiv.
+org/abs/2309.07597
+12. Nogueira, R., Cho, K.: Passage Re-ranking with BERT. arXiv:1901.04085 (2019).
+https://arxiv.org/abs/1901.04085
+13. Cormack, G.V., Clarke, C.L.A., Büttcher, S.: Reciprocal Rank Fusion outperforms
+Condorcet and Individual Rank Learning Methods. In: Proceedings of SIGIR, pp.
+758–759(2009).
+14. Bruch,S.,Gai,S.,Ingber,A.:AnAnalysisofFusionFunctionsforHybridRetrieval.
+arXiv:2210.11934(2022;revised2023).https://arxiv.org/abs/2210.11934
+15. Voorhees, E.M., Harman, D.K. (eds.): TREC: Experiment and Evaluation in Infor-
+mationRetrieval.MITPress(2005).
+16. Wang, W., Wei, F., Dong, L., Bao, H., Yang, N., Zhou, M.: MiniLM: Deep Self-
+Attention Distillation for Task-Agnostic Compression of Pre-Trained Transformers.
+AdvancesinNeuralInformationProcessingSystems33,5776–5788(2020).
+17. Reimers, N., Gurevych, I.: Sentence-BERT: Sentence Embeddings using Siamese
+BERT-Networks.In:ProceedingsofEMNLP-IJCNLP,pp.3982–3992(2019).https:
+//doi.org/10.18653/v1/D19-1410
+
+--- PAGE ---
+
+14 P.etal.
+Reviewers’ Remarks and Authors’ Responses
+Submission 90. Revised for DAMDID 2026, 14 September 2026.
+Reviewer 1: terminology and examples (weak accept). Remark, summarized and
+translated from Russian. The paper has the necessary research sections, but
+the meaning of deep re-annotation is insufficiently clear. The reviewer asks for
+concrete examples and explanations that make the main concepts accessible to
+readers who are less familiar with the topic.
+Response. We have defined deep re-annotation operationally in the Introduc-
+tion and Section 3.2: it means extending human judgments over a selected pool,
+notincreasingneural-networkdepthorjudgingtheentirecorpus.Section3.3and
+Table 2 now give an actual MS MARCO query, passage identifiers, shortened
+passage descriptions, and before/after relevance status. The surrounding expla-
+nation shows why a correct but unjudged answer receives no gain under sparse
+qrels. We explicitly distinguish changes in measured quality from improvements
+totheunchangedretrievalmodels,andexplainqrels,pooling,pseudo-labels,and
+the judge’s input. These clarifications are also included in the Russian version.
+Reviewer 2: overall assessment (accept). Remark, summarized. The reviewer
+considersthedataset-improvementproblemimportant,theresultsvaluable,and
+the strategy justified, and supports publication as a full paper.
+Response.Wethankthereviewerforthispositiveassessment.Nospecificad-
+ditionalchangewasrequested.Therevisedarticleretainsthefocusonrelevance-
+judgment coverage and adds the explanations and methodological clarifications
+described in this response.
+Reviewer 3: other providers and universality (strong accept). Remark, summa-
+rized. Are counterparts of MS MARCO available from Google, Yandex, or Ya-
+hoo? How universal is MS MARCO given possible differences in search-engine
+use between countries and social groups? The reviewer suggests explaining the
+choice of MS MARCO in the Introduction.
+Response. Section 1 now discusses Google’s Natural Questions, Yahoo!’s
+Learning to Rank Challenge, and Yandex’s Personalized Web Search Challenge
+with primary-source references. We distinguish text-based question answering,
+feature-based ranking, and anonymized interaction logs, rather than treat them
+as interchangeable datasets. We explain the choice of MS MARCO through
+available texts, sparse judgments, established tools, and pretrained models. Sec-
+tions 2 and 7 discuss cross-dataset evaluation and explicitly state that transfer
+across countries or social groups was not evaluated. The article makes no claim
+of demographic representativeness or universal validity.
+Additional methodological corrections in this revision. During verification we
+found that the previous calculation used a system-specific ideal denominator
+and omitted queries without a retrieved positive. We have replaced it with a
+common pool-based IDCG and a common query population, and recomputed
+
+--- PAGE ---
+
+DeepRe-annotationandControlledCandidatePools 15
+the ranking tables, paired effects, confidence intervals, and figures. The baseline
+now uses official development qrels directly, yielding 1,243 positive pairs in the
+manualpool;themedianhuman-positivecountiscorrectedto17.Pseudo-labels
+are regenerated consistently from raw scores and the saved threshold, yielding
+22,206positivesinthemanualpool.Wealsomaketheauxiliarypoolingchannels
+explicit, restrict RRF to the three named query-only retrievers, and distinguish
+fusion-input depth from assessment-pool depth. These changes affect numeri-
+cal values and delimit the conclusions; they are reported transparently rather
+than presented as purely editorial amendments. The qualitative finding that ad-
+ditional manual judgments increase measured NDCG remains supported under
+the revised protocol.
+The full-set fusion comparison changes direction relative to the previous ver-
+sion: reconstructed RRF(3) is below E5 at depth ten and above it at the four
+larger tested depths. This result also holds after excluding all manual queries.
+Section 6 and the Conclusion have been revised accordingly; we do not retain
+the previous claim about fusion behavior.

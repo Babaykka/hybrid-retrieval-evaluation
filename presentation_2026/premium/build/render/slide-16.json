@@ -1,0 +1,1674 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/o05xy2",
+    "id": "o05xy2",
+    "slide": 16,
+    "layoutId": "ebff5b89-b5a4-44bf-9697-e4d6828fa396",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "c22adb26-54a1-49f9-add6-5f10c6ba5de6",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "ebff5b89-b5a4-44bf-9697-e4d6828fa396",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "c22adb26-54a1-49f9-add6-5f10c6ba5de6",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "c22adb26-54a1-49f9-add6-5f10c6ba5de6",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hs7e1k3q",
+      "id": "1",
+      "name": "Full-set depth results",
+      "bbox": [
+        64,
+        48,
+        1152,
+        119
+      ],
+      "geometry": "rect",
+      "text": "Full-set depth results",
+      "textPreview": "Full-set depth results",
+      "resolvedFontSize": 46,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 46,
+        "typeface": "Arial",
+        "color": "#182B30",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Full-set depth results"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Full-set depth results",
+          "resolvedTextStyle": {
+            "fontSize": 46,
+            "typeface": "Arial",
+            "color": "#182B30",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Full-set depth results",
+              "fontSize": 46,
+              "typeface": "Arial",
+              "color": "#182B30",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/upwvq5kz",
+      "id": "2",
+      "name": "APPENDIX C",
+      "bbox": [
+        1104,
+        681,
+        112,
+        22
+      ],
+      "geometry": "rect",
+      "text": "APPENDIX C",
+      "textPreview": "APPENDIX C",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "APPENDIX C"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "APPENDIX C",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "APPENDIX C",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "table",
+      "scope": "slide",
+      "aid": "tb/e1o7qd0f",
+      "id": "3",
+      "bbox": [
+        64,
+        207,
+        1152,
+        389
+      ],
+      "text": "K | Candidates /\nquery | Predicted relevant /\nquery | E5\nNDCG@10 | RRF L=K\nNDCG@10 | RRF L=200\nNDCG@10\n10 | 21.9 | 14.2 | 0.871 | 0.852 | 0.805\n30 | 65.8 | 33.7 | 0.851 | 0.862 | 0.859\n50 | 110.4 | 49.4 | 0.847 | 0.856 | 0.856\n100 | 222.9 | 81.0 | 0.844 | 0.851 | 0.853\n200 | 451.5 | 128.6 | 0.842 | 0.850 | 0.850",
+      "textPreview": "K | Candidates / | query | Predicted relevant / | query | E5 | NDCG@10 | RRF L=K | NDCG@10 | RRF L=200 | NDCG@10 | 10 | 21.9 | 14.2 | 0.8...",
+      "rows": 6,
+      "cols": 6,
+      "cells": [
+        {
+          "index": 1,
+          "row": 1,
+          "column": 1,
+          "bbox": [
+            64,
+            207,
+            83,
+            84
+          ],
+          "text": "K",
+          "textPreview": "K",
+          "fillColor": "#EFF5F4",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "K",
+              "resolvedTextStyle": {
+                "fontSize": 22,
+                "typeface": "Arial",
+                "color": "#526970",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "K",
+                  "fontSize": 22,
+                  "typeface": "Arial",
+                  "color": "#526970",
+                  "bold": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "row": 1,
+          "column": 2,
+          "bbox": [
+            147,
+            207,
+            193,
+            84
+          ],
+          "text": "Candidates /\nquery",
+          "textPreview": "Candidates / | query",
+          "fillColor": "#EFF5F4",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "Candidates /",
+              "resolvedTextStyle": {
+                "fontSize": 22,
+                "typeface": "Arial",
+                "color": "#526970",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Candidates /",
+                  "fontSize": 22,
+                  "typeface": "Arial",
+                  "color": "#526970",
+                  "bold": true
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "text": "query",
+              "resolvedTextStyle": {
+                "fontSize": 22,
+                "typeface": "Arial",
+                "color": "#526970",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "query",
+                  "fontSize": 22,
+                  "typeface": "Arial",
+                  "color": "#526970",
+                  "bold": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "row": 1,
+          "column": 3,
+          "bbox": [
+            340,
+            207,
+            245,
+            84
+          ],
+          "text": "Predicted relevant /\nquery",
+          "textPreview": "Predicted relevant / | query",
+          "fillColor": "#EFF5F4",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "Predicted relevant /",
+              "resolvedTextStyle": {
+                "fontSize": 22,
+                "typeface": "Arial",
+                "color": "#526970",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Predicted relevant /",
+                  "fontSize": 22,
+                  "typeface": "Arial",
+                  "color": "#526970",
+                  "bold": true
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "text": "query",
+              "resolvedTextStyle": {
+                "fontSize": 22,
+                "typeface": "Arial",
+                "color": "#526970",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "query",
+                  "fontSize": 22,
+                  "typeface": "Arial",
+                  "color": "#526970",
+                  "bold": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "row": 1,
+          "column": 4,
+          "bbox": [
+            585,
+            207,
+            188,
+            84
+          ],
+          "text": "E5\nNDCG@10",
+          "textPreview": "E5 | NDCG@10",
+          "fillColor": "#EFF5F4",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "E5",
+              "resolvedTextStyle": {
+                "fontSize": 22,
+                "typeface": "Arial",
+                "color": "#526970",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "E5",
+                  "fontSize": 22,
+                  "typeface": "Arial",
+                  "color": "#526970",
+                  "bold": true
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "text": "NDCG@10",
+              "resolvedTextStyle": {
+                "fontSize": 22,
+                "typeface": "Arial",
+                "color": "#526970",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "NDCG@10",
+                  "fontSize": 22,
+                  "typeface": "Arial",
+                  "color": "#526970",
+                  "bold": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "row": 1,
+          "column": 5,
+          "bbox": [
+            773,
+            207,
+            216,
+            84
+          ],
+          "text": "RRF L=K\nNDCG@10",
+          "textPreview": "RRF L=K | NDCG@10",
+          "fillColor": "#EFF5F4",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "RRF L=K",
+              "resolvedTextStyle": {
+                "fontSize": 22,
+                "typeface": "Arial",
+                "color": "#C95236",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "RRF L=K",
+                  "fontSize": 22,
+                  "typeface": "Arial",
+                  "color": "#C95236",
+                  "bold": true
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "text": "NDCG@10",
+              "resolvedTextStyle": {
+                "fontSize": 22,
+                "typeface": "Arial",
+                "color": "#C95236",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "NDCG@10",
+                  "fontSize": 22,
+                  "typeface": "Arial",
+                  "color": "#C95236",
+                  "bold": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "row": 1,
+          "column": 6,
+          "bbox": [
+            989,
+            207,
+            227,
+            84
+          ],
+          "text": "RRF L=200\nNDCG@10",
+          "textPreview": "RRF L=200 | NDCG@10",
+          "fillColor": "#EFF5F4",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "RRF L=200",
+              "resolvedTextStyle": {
+                "fontSize": 22,
+                "typeface": "Arial",
+                "color": "#007F78",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "RRF L=200",
+                  "fontSize": 22,
+                  "typeface": "Arial",
+                  "color": "#007F78",
+                  "bold": true
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "text": "NDCG@10",
+              "resolvedTextStyle": {
+                "fontSize": 22,
+                "typeface": "Arial",
+                "color": "#007F78",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "NDCG@10",
+                  "fontSize": 22,
+                  "typeface": "Arial",
+                  "color": "#007F78",
+                  "bold": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "row": 2,
+          "column": 1,
+          "bbox": [
+            64,
+            291,
+            83,
+            61
+          ],
+          "text": "10",
+          "textPreview": "10",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "10",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "10",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "row": 2,
+          "column": 2,
+          "bbox": [
+            147,
+            291,
+            193,
+            61
+          ],
+          "text": "21.9",
+          "textPreview": "21.9",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "21.9",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "21.9",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "row": 2,
+          "column": 3,
+          "bbox": [
+            340,
+            291,
+            245,
+            61
+          ],
+          "text": "14.2",
+          "textPreview": "14.2",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "14.2",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "14.2",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 10,
+          "row": 2,
+          "column": 4,
+          "bbox": [
+            585,
+            291,
+            188,
+            61
+          ],
+          "text": "0.871",
+          "textPreview": "0.871",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.871",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.871",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 11,
+          "row": 2,
+          "column": 5,
+          "bbox": [
+            773,
+            291,
+            216,
+            61
+          ],
+          "text": "0.852",
+          "textPreview": "0.852",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.852",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.852",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 12,
+          "row": 2,
+          "column": 6,
+          "bbox": [
+            989,
+            291,
+            227,
+            61
+          ],
+          "text": "0.805",
+          "textPreview": "0.805",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.805",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.805",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 13,
+          "row": 3,
+          "column": 1,
+          "bbox": [
+            64,
+            352,
+            83,
+            61
+          ],
+          "text": "30",
+          "textPreview": "30",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "30",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "30",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 14,
+          "row": 3,
+          "column": 2,
+          "bbox": [
+            147,
+            352,
+            193,
+            61
+          ],
+          "text": "65.8",
+          "textPreview": "65.8",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "65.8",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "65.8",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 15,
+          "row": 3,
+          "column": 3,
+          "bbox": [
+            340,
+            352,
+            245,
+            61
+          ],
+          "text": "33.7",
+          "textPreview": "33.7",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "33.7",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "33.7",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 16,
+          "row": 3,
+          "column": 4,
+          "bbox": [
+            585,
+            352,
+            188,
+            61
+          ],
+          "text": "0.851",
+          "textPreview": "0.851",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.851",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.851",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 17,
+          "row": 3,
+          "column": 5,
+          "bbox": [
+            773,
+            352,
+            216,
+            61
+          ],
+          "text": "0.862",
+          "textPreview": "0.862",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.862",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.862",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 18,
+          "row": 3,
+          "column": 6,
+          "bbox": [
+            989,
+            352,
+            227,
+            61
+          ],
+          "text": "0.859",
+          "textPreview": "0.859",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.859",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.859",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 19,
+          "row": 4,
+          "column": 1,
+          "bbox": [
+            64,
+            413,
+            83,
+            61
+          ],
+          "text": "50",
+          "textPreview": "50",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "50",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "50",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 20,
+          "row": 4,
+          "column": 2,
+          "bbox": [
+            147,
+            413,
+            193,
+            61
+          ],
+          "text": "110.4",
+          "textPreview": "110.4",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "110.4",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "110.4",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 21,
+          "row": 4,
+          "column": 3,
+          "bbox": [
+            340,
+            413,
+            245,
+            61
+          ],
+          "text": "49.4",
+          "textPreview": "49.4",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "49.4",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "49.4",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 22,
+          "row": 4,
+          "column": 4,
+          "bbox": [
+            585,
+            413,
+            188,
+            61
+          ],
+          "text": "0.847",
+          "textPreview": "0.847",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.847",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.847",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 23,
+          "row": 4,
+          "column": 5,
+          "bbox": [
+            773,
+            413,
+            216,
+            61
+          ],
+          "text": "0.856",
+          "textPreview": "0.856",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.856",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.856",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "row": 4,
+          "column": 6,
+          "bbox": [
+            989,
+            413,
+            227,
+            61
+          ],
+          "text": "0.856",
+          "textPreview": "0.856",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.856",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.856",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 25,
+          "row": 5,
+          "column": 1,
+          "bbox": [
+            64,
+            474,
+            83,
+            61
+          ],
+          "text": "100",
+          "textPreview": "100",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "100",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "100",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 26,
+          "row": 5,
+          "column": 2,
+          "bbox": [
+            147,
+            474,
+            193,
+            61
+          ],
+          "text": "222.9",
+          "textPreview": "222.9",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "222.9",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "222.9",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 27,
+          "row": 5,
+          "column": 3,
+          "bbox": [
+            340,
+            474,
+            245,
+            61
+          ],
+          "text": "81.0",
+          "textPreview": "81.0",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "81.0",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "81.0",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 28,
+          "row": 5,
+          "column": 4,
+          "bbox": [
+            585,
+            474,
+            188,
+            61
+          ],
+          "text": "0.844",
+          "textPreview": "0.844",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.844",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.844",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 29,
+          "row": 5,
+          "column": 5,
+          "bbox": [
+            773,
+            474,
+            216,
+            61
+          ],
+          "text": "0.851",
+          "textPreview": "0.851",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.851",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.851",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 30,
+          "row": 5,
+          "column": 6,
+          "bbox": [
+            989,
+            474,
+            227,
+            61
+          ],
+          "text": "0.853",
+          "textPreview": "0.853",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.853",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.853",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 31,
+          "row": 6,
+          "column": 1,
+          "bbox": [
+            64,
+            535,
+            83,
+            61
+          ],
+          "text": "200",
+          "textPreview": "200",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "200",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "200",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 32,
+          "row": 6,
+          "column": 2,
+          "bbox": [
+            147,
+            535,
+            193,
+            61
+          ],
+          "text": "451.5",
+          "textPreview": "451.5",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "451.5",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "451.5",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 33,
+          "row": 6,
+          "column": 3,
+          "bbox": [
+            340,
+            535,
+            245,
+            61
+          ],
+          "text": "128.6",
+          "textPreview": "128.6",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "128.6",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "128.6",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 34,
+          "row": 6,
+          "column": 4,
+          "bbox": [
+            585,
+            535,
+            188,
+            61
+          ],
+          "text": "0.842",
+          "textPreview": "0.842",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.842",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.842",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 35,
+          "row": 6,
+          "column": 5,
+          "bbox": [
+            773,
+            535,
+            216,
+            61
+          ],
+          "text": "0.850",
+          "textPreview": "0.850",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.850",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.850",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 36,
+          "row": 6,
+          "column": 6,
+          "bbox": [
+            989,
+            535,
+            227,
+            61
+          ],
+          "text": "0.850",
+          "textPreview": "0.850",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "0.850",
+              "resolvedTextStyle": {
+                "fontSize": 24,
+                "typeface": "Arial",
+                "color": "#182B30",
+                "alignment": "right"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "0.850",
+                  "fontSize": 24,
+                  "typeface": "Arial",
+                  "color": "#182B30",
+                  "alignment": "right"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/snedov2t",
+      "id": "4",
+      "name": "Single-judge pseudo-labels. All 101,093 queries ",
+      "bbox": [
+        64,
+        642,
+        1135,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Single-judge pseudo-labels. All 101,093 queries remain in every average.",
+      "textPreview": "Single-judge pseudo-labels. All 101,093 queries remain in every average.",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Single-judge pseudo-labels. All 101,093 queries remain in every average."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Single-judge pseudo-labels. All 101,093 queries remain in every average.",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Single-judge pseudo-labels. All 101,093 queries remain in every average.",
+              "fontSize": 21,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

@@ -1,0 +1,86 @@
+{
+  "slides": 15,
+  "body_word_count": 1702,
+  "estimated_seconds": 910,
+  "timing_assumption": "120 words/minute plus 4 seconds per slide, rounded to 5 seconds",
+  "timing_is_rehearsed": false,
+  "original_english_deck_pdf_sha256": "4bbb428c036fa771e95cfddd223763644af10c884bcfaad87faa81680d335446",
+  "timings": [
+    {
+      "slide": 1,
+      "start_seconds": 0,
+      "duration_seconds": 35
+    },
+    {
+      "slide": 2,
+      "start_seconds": 35,
+      "duration_seconds": 50
+    },
+    {
+      "slide": 3,
+      "start_seconds": 85,
+      "duration_seconds": 65
+    },
+    {
+      "slide": 4,
+      "start_seconds": 150,
+      "duration_seconds": 55
+    },
+    {
+      "slide": 5,
+      "start_seconds": 205,
+      "duration_seconds": 55
+    },
+    {
+      "slide": 6,
+      "start_seconds": 260,
+      "duration_seconds": 65
+    },
+    {
+      "slide": 7,
+      "start_seconds": 325,
+      "duration_seconds": 55
+    },
+    {
+      "slide": 8,
+      "start_seconds": 380,
+      "duration_seconds": 80
+    },
+    {
+      "slide": 9,
+      "start_seconds": 460,
+      "duration_seconds": 60
+    },
+    {
+      "slide": 10,
+      "start_seconds": 520,
+      "duration_seconds": 65
+    },
+    {
+      "slide": 11,
+      "start_seconds": 585,
+      "duration_seconds": 60
+    },
+    {
+      "slide": 12,
+      "start_seconds": 645,
+      "duration_seconds": 65
+    },
+    {
+      "slide": 13,
+      "start_seconds": 710,
+      "duration_seconds": 75
+    },
+    {
+      "slide": 14,
+      "start_seconds": 785,
+      "duration_seconds": 65
+    },
+    {
+      "slide": 15,
+      "start_seconds": 850,
+      "duration_seconds": 60
+    }
+  ],
+  "docx_path": "./DAMDID_2026_Русский_доклад/DAMDID_2026_Текст_выступления_RU.docx"
+}

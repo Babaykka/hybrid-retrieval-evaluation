@@ -1,0 +1,13 @@
+{"kind": "deck", "id": "pr/yd5882", "name": "Deck"}
+{"kind": "layout", "layoutId": "9ba5eb4a-27b1-4f4b-8757-d7f7c2124aba", "name": "Master", "type": "master"}
+{"kind": "layout", "layoutId": "33ba07bb-36bf-4fa1-8495-d4cd01ab91ed", "name": "Title Slide", "type": "title"}
+{"kind": "slide", "id": "sl/ewoepd", "slide": 1, "title": "Manual NDCG@10", "textShapes": 2}
+{"kind": "textbox", "id": "sh/yl4nmd0v", "slide": 1, "name": "Manual NDCG@10", "text": "Manual NDCG@10", "textPreview": "Manual NDCG@10", "textChars": 14, "textLines": 1, "bbox": [64, 48, 1152, 119]}
+{"kind": "textbox", "id": "sh/lovmh8zm", "slide": 1, "name": "01", "text": "01", "textPreview": "01", "textChars": 2, "textLines": 1, "bbox": [1104, 681, 112, 22]}
+{"kind": "chart", "id": "ch/wfahgjq9", "slide": 1, "name": "", "chartType": "bar", "bbox": [64, 182, 1152, 420]}
+{"kind": "notes", "id": "nt/ewoepd", "slide": 1, "text": "Ориентир: 60 секунд.\n\nProbe\n\nИсточники:\nStudy data and corrected pool-based analysis, ,  and , DAMDID 2026."}
+{"kind": "slide", "id": "sl/5ff8sq", "slide": 2, "title": "Table styling", "textShapes": 2}
+{"kind": "textbox", "id": "sh/l0ril4rm", "slide": 2, "name": "Table styling", "text": "Table styling", "textPreview": "Table styling", "textChars": 13, "textLines": 1, "bbox": [64, 48, 1152, 119]}
+{"kind": "textbox", "id": "sh/yx0japsb", "slide": 2, "name": "02", "text": "02", "textPreview": "02", "textChars": 2, "textLines": 1, "bbox": [1104, 681, 112, 22]}
+{"kind": "table", "id": "tb/m90byp4r", "slide": 2, "name": "", "rows": 4, "cols": 3, "preview": "Passage | Original | Human", "bbox": [64, 200, 1152, 334]}
+{"kind": "notes", "id": "nt/5ff8sq", "slide": 2, "text": "Ориентир: 60 секунд.\n\nProbe\n\nИсточники:\nStudy data and corrected pool-based analysis, ,  and , DAMDID 2026."}

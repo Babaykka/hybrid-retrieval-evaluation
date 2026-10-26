@@ -1,0 +1,237 @@
+{
+  "schema": "openai.presentation.layout/v5",
+  "unit": "px",
+  "slide": {
+    "id": "sl/2a1t6u",
+    "index": 13,
+    "layout": {
+      "id": "ly/udobyxwn",
+      "name": "Title Slide"
+    },
+    "backgroundColor": "rgba(255,255,255,1)",
+    "position": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "elements": [
+    {
+      "id": "sh/h4zqt0re",
+      "kind": "textbox",
+      "name": "Ключевой опыт: выдача зафиксирована",
+      "position": {
+        "left": 64,
+        "top": 49,
+        "width": 1152,
+        "height": 106
+      },
+      "text": "Ключевой опыт: выдача зафиксирована",
+      "style": {
+        "fontSize": 44,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/u187y5s3",
+      "kind": "textbox",
+      "name": "14",
+      "position": {
+        "left": 1104,
+        "top": 681,
+        "width": 112,
+        "height": 22
+      },
+      "text": "14",
+      "style": {
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#51646A",
+        "alignment": "right"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/f2h8ra9o",
+      "kind": "textbox",
+      "name": "L = 200. У каждой системы топ-10 неизменен при л",
+      "position": {
+        "left": 64,
+        "top": 156,
+        "width": 1152,
+        "height": 40
+      },
+      "text": "L = 200. У каждой системы топ-10 неизменен при любом K",
+      "style": {
+        "fontSize": 27,
+        "typeface": "Arial",
+        "color": "#51646A",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/47qp4fa5",
+      "kind": "textbox",
+      "name": "Меняются только доступные оценки релевантности",
+      "position": {
+        "left": 64,
+        "top": 204,
+        "width": 1152,
+        "height": 44
+      },
+      "text": "Меняются только доступные оценки релевантности",
+      "style": {
+        "fontSize": 31,
+        "typeface": "Arial",
+        "color": "#007D76",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "ch/tcjuxgf6",
+      "kind": "chart",
+      "position": {
+        "left": 64,
+        "top": 270,
+        "width": 822,
+        "height": 303
+      },
+      "chartType": "scatter"
+    },
+    {
+      "id": "sh/258725sz",
+      "kind": "textbox",
+      "name": "14,4%",
+      "position": {
+        "left": 941,
+        "top": 286,
+        "width": 275,
+        "height": 83
+      },
+      "text": "14,4%",
+      "style": {
+        "fontSize": 66,
+        "typeface": "Arial",
+        "color": "#007D76",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/36h8va9k",
+      "kind": "textbox",
+      "name": "пар из топ-10 RRF\nвне оценочного пула\nпри K = 10",
+      "position": {
+        "left": 941,
+        "top": 369,
+        "width": 275,
+        "height": 126
+      },
+      "text": "пар из топ-10 RRF\nвне оценочного пула\nпри K = 10",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Arial",
+        "color": "#17282B",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/cbap8fa1",
+      "kind": "textbox",
+      "name": "Топ-10 E5 уже\nцеликом внутри пула",
+      "position": {
+        "left": 941,
+        "top": 515,
+        "width": 275,
+        "height": 75
+      },
+      "text": "Топ-10 E5 уже\nцеликом внутри пула",
+      "style": {
+        "fontSize": 24,
+        "typeface": "Arial",
+        "color": "#51646A",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/dwjq1krm",
+      "kind": "textbox",
+      "name": "K = 10: −0,0661",
+      "position": {
+        "left": 91,
+        "top": 594,
+        "width": 378,
+        "height": 38
+      },
+      "text": "K = 10: −0,0661",
+      "style": {
+        "fontSize": 25,
+        "typeface": "Arial",
+        "color": "#007D76",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/98nix4j2",
+      "kind": "textbox",
+      "name": "K = 30: +0,0080",
+      "position": {
+        "left": 486,
+        "top": 594,
+        "width": 378,
+        "height": 38
+      },
+      "text": "K = 30: +0,0080",
+      "style": {
+        "fontSize": 25,
+        "typeface": "Arial",
+        "color": "#007D76",
+        "bold": true,
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    },
+    {
+      "id": "sh/87ehoz2x",
+      "kind": "textbox",
+      "name": "Разность RRF − E5 по псевдометкам. Расширение пу",
+      "position": {
+        "left": 64,
+        "top": 642,
+        "width": 1135,
+        "height": 45
+      },
+      "text": "Разность RRF − E5 по псевдометкам. Расширение пула меняет покрытие и нормировку.",
+      "style": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#51646A",
+        "alignment": "left"
+      },
+      "geometry": "rect",
+      "lineWidth": 0
+    }
+  ]
+}

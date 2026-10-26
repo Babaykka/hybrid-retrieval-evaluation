@@ -1,0 +1,23 @@
+\section*{Reviewers' Remarks and Authors' Responses}
+\label{sec:responses}
+\noindent Submission 90. Revised for DAMDID 2026, 14 September 2026.
+
+\paragraph{Reviewer 1: terminology and examples (weak accept).}
+\emph{Remark, summarized and translated from Russian.} The paper has the necessary research sections, but the meaning of deep re-annotation is insufficiently clear. The reviewer asks for concrete examples and explanations that make the main concepts accessible to readers who are less familiar with the topic.
+
+\emph{Response.} We have defined deep re-annotation operationally in the Introduction and Section~\ref{sec:annotation}: it means extending human judgments over a selected pool, not increasing neural-network depth or judging the entire corpus. Section~\ref{sec:example} and Table~\ref{tab:example} now give an actual MS MARCO query, passage identifiers, shortened passage descriptions, and before/after relevance status. The surrounding explanation shows why a correct but unjudged answer receives no gain under sparse qrels. We explicitly distinguish changes in measured quality from improvements to the unchanged retrieval models, and explain qrels, pooling, pseudo-labels, and the judge's input. These clarifications are also included in the Russian version.
+
+\paragraph{Reviewer 2: overall assessment (accept).}
+\emph{Remark, summarized.} The reviewer considers the dataset-improvement problem important, the results valuable, and the strategy justified, and supports publication as a full paper.
+
+\emph{Response.} We thank the reviewer for this positive assessment. No specific additional change was requested. The revised article retains the focus on relevance-judgment coverage and adds the explanations and methodological clarifications described in this response.
+
+\paragraph{Reviewer 3: other providers and universality (strong accept).}
+\emph{Remark, summarized.} Are counterparts of MS MARCO available from Google, Yandex, or Yahoo? How universal is MS MARCO given possible differences in search-engine use between countries and social groups? The reviewer suggests explaining the choice of MS MARCO in the Introduction.
+
+\emph{Response.} Section~\ref{sec:intro} now discusses Google's Natural Questions, Yahoo!'s Learning to Rank Challenge, and Yandex's Personalized Web Search Challenge with primary-source references. We distinguish text-based question answering, feature-based ranking, and anonymized interaction logs, rather than treat them as interchangeable datasets. We explain the choice of MS MARCO through available texts, sparse judgments, established tools, and pretrained models. Sections~\ref{sec:related} and \ref{sec:discussion} discuss cross-dataset evaluation and explicitly state that transfer across countries or social groups was not evaluated. The article makes no claim of demographic representativeness or universal validity.
+
+\paragraph{Additional methodological corrections in this revision.}
+During verification we found that the previous calculation used a system-specific ideal denominator and omitted queries without a retrieved positive. We have replaced it with a common pool-based IDCG and a common query population, and recomputed the ranking tables, paired effects, confidence intervals, and figures. The baseline now uses official development qrels directly, yielding 1,243 positive pairs in the manual pool; the median human-positive count is corrected to 17. Pseudo-labels are regenerated consistently from raw scores and the saved threshold, yielding 22,206 positives in the manual pool. We also make the auxiliary pooling channels explicit, restrict RRF to the three named query-only retrievers, and distinguish fusion-input depth from assessment-pool depth. These changes affect numerical values and delimit the conclusions; they are reported transparently rather than presented as purely editorial amendments. The qualitative finding that additional manual judgments increase measured NDCG remains supported under the revised protocol.
+
+The full-set fusion comparison changes direction relative to the previous version: reconstructed RRF(3) is below E5 at depth ten and above it at the four larger tested depths. This result also holds after excluding all manual queries. Section~\ref{sec:fullset} and the Conclusion have been revised accordingly; we do not retain the previous claim about fusion behavior.

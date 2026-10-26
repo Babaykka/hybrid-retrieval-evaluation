@@ -1,0 +1,9 @@
+{
+  "official_dev_queries": 101093,
+  "local_full_queries": 101093,
+  "symmetric_difference": 0,
+  "dev_small_queries": 6980,
+  "manual_queries": 1179,
+  "manual_outside_dev_small": 0,
+  "official_queries_archive_md5": "c177b2795d5f2dcc524cf00fcd973be1"
+}

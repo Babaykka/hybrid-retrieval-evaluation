@@ -1,0 +1,874 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/at65v7",
+    "id": "at65v7",
+    "slide": 14,
+    "layoutId": "db23c5cc-5b0f-4a2e-a488-68875c76dd83",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "01f1e72e-483e-4f9b-a3d6-8ae60465ed9d",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#FFFFFF",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "db23c5cc-5b0f-4a2e-a488-68875c76dd83",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "01f1e72e-483e-4f9b-a3d6-8ae60465ed9d",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "01f1e72e-483e-4f9b-a3d6-8ae60465ed9d",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/72lwfm98",
+      "id": "1",
+      "name": "Устойчивость и ограничения",
+      "bbox": [
+        64,
+        48,
+        1152,
+        112
+      ],
+      "geometry": "rect",
+      "text": "Устойчивость и ограничения",
+      "textPreview": "Устойчивость и ограничения",
+      "resolvedFontSize": 43,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 43,
+        "typeface": "Arial",
+        "color": "#182B30",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Устойчивость и ограничения"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Устойчивость и ограничения",
+          "resolvedTextStyle": {
+            "fontSize": 43,
+            "typeface": "Arial",
+            "color": "#182B30",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Устойчивость и ограничения",
+              "fontSize": 43,
+              "typeface": "Arial",
+              "color": "#182B30",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8nedorqt",
+      "id": "2",
+      "name": "14",
+      "bbox": [
+        1104,
+        681,
+        112,
+        22
+      ],
+      "geometry": "rect",
+      "text": "14",
+      "textPreview": "14",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "14"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "14",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "14",
+              "fontSize": 15,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9onehwry",
+      "id": "3",
+      "name": "Сравнение после исключения части запросов",
+      "bbox": [
+        64,
+        178,
+        1100,
+        44
+      ],
+      "geometry": "rect",
+      "text": "Сравнение после исключения части запросов",
+      "textPreview": "Сравнение после исключения части запросов",
+      "resolvedFontSize": 31,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 31,
+        "typeface": "Arial",
+        "color": "#007F78",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Сравнение после исключения части запросов"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Сравнение после исключения части запросов",
+          "resolvedTextStyle": {
+            "fontSize": 31,
+            "typeface": "Arial",
+            "color": "#007F78",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Сравнение после исключения части запросов",
+              "fontSize": 31,
+              "typeface": "Arial",
+              "color": "#007F78",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "table",
+      "scope": "slide",
+      "aid": "tb/v21wvqdc",
+      "id": "4",
+      "bbox": [
+        64,
+        238,
+        1152,
+        229
+      ],
+      "text": "Оценивание | Запросов | Результат\nРучная разметка\nИсключены 23 запроса | 1 156 | Порядок систем сохранён\nПсевдометки\nБез ручных запросов | 99 914 | Знаки разностей\nRRF–E5 сохранены",
+      "textPreview": "Оценивание | Запросов | Результат | Ручная разметка | Исключены 23 запроса | 1 156 | Порядок систем сохранён | Псевдометки | Без ручных з...",
+      "rows": 3,
+      "cols": 3,
+      "cells": [
+        {
+          "index": 1,
+          "row": 1,
+          "column": 1,
+          "bbox": [
+            64,
+            238,
+            455,
+            53
+          ],
+          "text": "Оценивание",
+          "textPreview": "Оценивание",
+          "fillColor": "#EFF5F4",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "Оценивание",
+              "resolvedTextStyle": {
+                "fontSize": 23,
+                "typeface": "Arial",
+                "color": "#526970",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Оценивание",
+                  "fontSize": 23,
+                  "typeface": "Arial",
+                  "color": "#526970",
+                  "bold": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "row": 1,
+          "column": 2,
+          "bbox": [
+            519,
+            238,
+            257,
+            53
+          ],
+          "text": "Запросов",
+          "textPreview": "Запросов",
+          "fillColor": "#EFF5F4",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "Запросов",
+              "resolvedTextStyle": {
+                "fontSize": 23,
+                "typeface": "Arial",
+                "color": "#526970",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Запросов",
+                  "fontSize": 23,
+                  "typeface": "Arial",
+                  "color": "#526970",
+                  "bold": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "row": 1,
+          "column": 3,
+          "bbox": [
+            776,
+            238,
+            440,
+            53
+          ],
+          "text": "Результат",
+          "textPreview": "Результат",
+          "fillColor": "#EFF5F4",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "Результат",
+              "resolvedTextStyle": {
+                "fontSize": 23,
+                "typeface": "Arial",
+                "color": "#526970",
+                "bold": true
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Результат",
+                  "fontSize": 23,
+                  "typeface": "Arial",
+                  "color": "#526970",
+                  "bold": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "row": 2,
+          "column": 1,
+          "bbox": [
+            64,
+            291,
+            455,
+            88
+          ],
+          "text": "Ручная разметка\nИсключены 23 запроса",
+          "textPreview": "Ручная разметка | Исключены 23 запроса",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "Ручная разметка",
+              "resolvedTextStyle": {
+                "fontSize": 25,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Ручная разметка",
+                  "fontSize": 25,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "text": "Исключены 23 запроса",
+              "resolvedTextStyle": {
+                "fontSize": 25,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Исключены 23 запроса",
+                  "fontSize": 25,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "row": 2,
+          "column": 2,
+          "bbox": [
+            519,
+            291,
+            257,
+            88
+          ],
+          "text": "1 156",
+          "textPreview": "1 156",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "1 156",
+              "resolvedTextStyle": {
+                "fontSize": 25,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "1 156",
+                  "fontSize": 25,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "row": 2,
+          "column": 3,
+          "bbox": [
+            776,
+            291,
+            440,
+            88
+          ],
+          "text": "Порядок систем сохранён",
+          "textPreview": "Порядок систем сохранён",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "Порядок систем сохранён",
+              "resolvedTextStyle": {
+                "fontSize": 25,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Порядок систем сохранён",
+                  "fontSize": 25,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "row": 3,
+          "column": 1,
+          "bbox": [
+            64,
+            379,
+            455,
+            88
+          ],
+          "text": "Псевдометки\nБез ручных запросов",
+          "textPreview": "Псевдометки | Без ручных запросов",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "Псевдометки",
+              "resolvedTextStyle": {
+                "fontSize": 25,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Псевдометки",
+                  "fontSize": 25,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "text": "Без ручных запросов",
+              "resolvedTextStyle": {
+                "fontSize": 25,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Без ручных запросов",
+                  "fontSize": 25,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "row": 3,
+          "column": 2,
+          "bbox": [
+            519,
+            379,
+            257,
+            88
+          ],
+          "text": "99 914",
+          "textPreview": "99 914",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "99 914",
+              "resolvedTextStyle": {
+                "fontSize": 25,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "99 914",
+                  "fontSize": 25,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "row": 3,
+          "column": 3,
+          "bbox": [
+            776,
+            379,
+            440,
+            88
+          ],
+          "text": "Знаки разностей\nRRF–E5 сохранены",
+          "textPreview": "Знаки разностей | RRF–E5 сохранены",
+          "fillColor": "#FFFFFF",
+          "paragraphs": [
+            {
+              "index": 1,
+              "text": "Знаки разностей",
+              "resolvedTextStyle": {
+                "fontSize": 25,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "Знаки разностей",
+                  "fontSize": 25,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            },
+            {
+              "index": 2,
+              "text": "RRF–E5 сохранены",
+              "resolvedTextStyle": {
+                "fontSize": 25,
+                "typeface": "Arial",
+                "color": "#182B30"
+              },
+              "runs": [
+                {
+                  "index": 1,
+                  "text": "RRF–E5 сохранены",
+                  "fontSize": 25,
+                  "typeface": "Arial",
+                  "color": "#182B30"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zylcbm9w",
+      "id": "5",
+      "bbox": [
+        64,
+        492,
+        1152,
+        0
+      ],
+      "geometry": "line",
+      "lineColor": "#D4E1E0",
+      "lineWidth": 1.2
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kzudk7qh",
+      "id": "6",
+      "name": "Ручные пулы: известный ответ, согласие экспертов",
+      "bbox": [
+        64,
+        521,
+        1152,
+        43
+      ],
+      "geometry": "rect",
+      "text": "Ручные пулы: известный ответ, согласие экспертов не измерено.",
+      "textPreview": "Ручные пулы: известный ответ, согласие экспертов не измерено.",
+      "resolvedFontSize": 27,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 27,
+        "typeface": "Arial",
+        "color": "#182B30",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ручные пулы: известный ответ, согласие экспертов не измерено."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ручные пулы: известный ответ, согласие экспертов не измерено.",
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Arial",
+            "color": "#182B30",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ручные пулы: известный ответ, согласие экспертов не измерено.",
+              "fontSize": 27,
+              "typeface": "Arial",
+              "color": "#182B30",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l03udcr2",
+      "id": "7",
+      "name": "Большие пулы: один судья, без независимой ручной",
+      "bbox": [
+        64,
+        574,
+        1152,
+        43
+      ],
+      "geometry": "rect",
+      "text": "Большие пулы: один судья, без независимой ручной проверки.",
+      "textPreview": "Большие пулы: один судья, без независимой ручной проверки.",
+      "resolvedFontSize": 27,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 27,
+        "typeface": "Arial",
+        "color": "#182B30",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Большие пулы: один судья, без независимой ручной проверки."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Большие пулы: один судья, без независимой ручной проверки.",
+          "resolvedTextStyle": {
+            "fontSize": 27,
+            "typeface": "Arial",
+            "color": "#182B30",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Большие пулы: один судья, без независимой ручной проверки.",
+              "fontSize": 27,
+              "typeface": "Arial",
+              "color": "#182B30",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/itwvu18v",
+      "id": "8",
+      "name": "Перенос за пределы выбранных пулов английского M",
+      "bbox": [
+        64,
+        642,
+        1135,
+        38
+      ],
+      "geometry": "rect",
+      "text": "Перенос за пределы выбранных пулов английского MS MARCO не проверен.",
+      "textPreview": "Перенос за пределы выбранных пулов английского MS MARCO не проверен.",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 23,
+        "typeface": "Arial",
+        "color": "#526970",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Перенос за пределы выбранных пулов английского MS MARCO не проверен."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Перенос за пределы выбранных пулов английского MS MARCO не проверен.",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Arial",
+            "color": "#526970",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Перенос за пределы выбранных пулов английского MS MARCO не проверен.",
+              "fontSize": 23,
+              "typeface": "Arial",
+              "color": "#526970",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

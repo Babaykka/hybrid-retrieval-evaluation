@@ -1,0 +1,548 @@
+{
+  "protocol": {
+    "idcg": "common annotated-pool IDCG per query and label set",
+    "zero_queries": "retained with NDCG=0",
+    "ranking_ties": "descending score then ascending numeric document ID",
+    "rrf": "BM25+E5+BGE top10; c=60",
+    "unknown_manual_labels": "unjudged, zero gain at retained ranks",
+    "seed": 20260914,
+    "bootstrap_resamples": 5000,
+    "paired_sign_flips": 10000
+  },
+  "queries": 1179,
+  "pairs": 33667,
+  "pool_mean": 28.555555555555557,
+  "pool_max": 63,
+  "pools_over_40": 35,
+  "label_counts": {
+    "2": 19340,
+    "1": 1257,
+    "0": 13041,
+    "3": 26,
+    "22": 1,
+    "20": 2
+  },
+  "channel_counts": {
+    "e5": 11790,
+    "bm25": 11790,
+    "bge": 11790,
+    "e5-rerank": 11790,
+    "s0": 11790,
+    "s1": 540,
+    "s2": 90,
+    "s3": 10
+  },
+  "extra_channel_only_pairs": 6258,
+  "invalid_labels": [
+    [
+      "1045709",
+      "273836",
+      3
+    ],
+    [
+      "1045709",
+      "378823",
+      3
+    ],
+    [
+      "1045709",
+      "7933404",
+      3
+    ],
+    [
+      "1045709",
+      "7033820",
+      3
+    ],
+    [
+      "1046520",
+      "7191501",
+      3
+    ],
+    [
+      "1046520",
+      "6316218",
+      3
+    ],
+    [
+      "1046520",
+      "7191504",
+      3
+    ],
+    [
+      "1046520",
+      "6707442",
+      3
+    ],
+    [
+      "1046520",
+      "5314256",
+      3
+    ],
+    [
+      "1054958",
+      "7176970",
+      3
+    ],
+    [
+      "1056163",
+      "7819352",
+      3
+    ],
+    [
+      "1058604",
+      "1012904",
+      3
+    ],
+    [
+      "1060039",
+      "7168996",
+      3
+    ],
+    [
+      "1064473",
+      "7697946",
+      3
+    ],
+    [
+      "1064473",
+      "5617948",
+      3
+    ],
+    [
+      "1064473",
+      "2943767",
+      3
+    ],
+    [
+      "1064473",
+      "6676199",
+      3
+    ],
+    [
+      "1067659",
+      "625437",
+      3
+    ],
+    [
+      "1071598",
+      "7157397",
+      3
+    ],
+    [
+      "1078222",
+      "1810082",
+      22
+    ],
+    [
+      "1080937",
+      "2529235",
+      3
+    ],
+    [
+      "1080937",
+      "2529237",
+      3
+    ],
+    [
+      "1082948",
+      "7141788",
+      3
+    ],
+    [
+      "1082966",
+      "8768650",
+      20
+    ],
+    [
+      "1083690",
+      "1789725",
+      3
+    ],
+    [
+      "1084086",
+      "7059174",
+      3
+    ],
+    [
+      "1087603",
+      "6845724",
+      3
+    ],
+    [
+      "1100980",
+      "1067533",
+      20
+    ],
+    [
+      "323382",
+      "3721694",
+      3
+    ]
+  ],
+  "empty_texts": [
+    [
+      "1003875",
+      "6036780",
+      0
+    ],
+    [
+      "1084814",
+      "7124891",
+      2
+    ],
+    [
+      "1086860",
+      "8806286",
+      0
+    ],
+    [
+      "205107",
+      "7076255",
+      2
+    ],
+    [
+      "79891",
+      "7073214",
+      2
+    ]
+  ],
+  "clean_queries": 1156,
+  "density": {
+    "official": {
+      "pairs": 1243,
+      "mean": 1.0542832909245123,
+      "median": 1.0,
+      "queries_with_positive": 1179
+    },
+    "human": {
+      "pairs": 20597,
+      "mean": 17.46988973706531,
+      "median": 17.0,
+      "queries_with_positive": 1179
+    },
+    "judge": {
+      "pairs": 22206,
+      "mean": 18.834605597964376,
+      "median": 19.0,
+      "queries_with_positive": 1174
+    }
+  },
+  "metrics": {
+    "bm25": {
+      "official": 0.24818879111418393,
+      "human": 0.6438929888870051,
+      "judge": 0.7019598229113477,
+      "human_minus_official": {
+        "mean": 0.3957041977728211,
+        "ci95": [
+          0.3723868732880059,
+          0.4188399861931222
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "queries": 1179
+      },
+      "clean_queries_human": 0.6437674969000173,
+      "clean_queries_official": 0.2501425972435825
+    },
+    "e5": {
+      "official": 0.48799936165737934,
+      "human": 0.8793460642124787,
+      "judge": 0.9043687947616789,
+      "human_minus_official": {
+        "mean": 0.3913467025550994,
+        "ci95": [
+          0.3652797868387797,
+          0.4171863934438634
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "queries": 1179
+      },
+      "clean_queries_human": 0.8792218061273852,
+      "clean_queries_official": 0.49162364967374367
+    },
+    "bge": {
+      "official": 0.4332277402703794,
+      "human": 0.8279509421697896,
+      "judge": 0.8623867424061398,
+      "human_minus_official": {
+        "mean": 0.3947232018994101,
+        "ci95": [
+          0.3691000840349604,
+          0.41940349215647305
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "queries": 1179
+      },
+      "clean_queries_human": 0.8279787199172698,
+      "clean_queries_official": 0.43673878198594407
+    },
+    "rrf3": {
+      "official": 0.45864250226585984,
+      "human": 0.8538416380658425,
+      "judge": 0.8848273705206777,
+      "human_minus_official": {
+        "mean": 0.3951991357999827,
+        "ci95": [
+          0.3708269140301979,
+          0.418594531488229
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "queries": 1179
+      },
+      "clean_queries_human": 0.8546528489054969,
+      "clean_queries_official": 0.46142642194640054
+    },
+    "e5-rerank": {
+      "official": 0.5205624295618079,
+      "human": 0.9017926543974558,
+      "judge": 0.9333026111485397,
+      "human_minus_official": {
+        "mean": 0.38123022483564795,
+        "ci95": [
+          0.3561222687129509,
+          0.4067863164929852
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "queries": 1179
+      },
+      "clean_queries_human": 0.901933718344759,
+      "clean_queries_official": 0.5255786916060735
+    },
+    "judge-rerank": {
+      "official": 0.5313479019570935,
+      "human": 0.9587353331098499,
+      "judge": 0.9957591178965225,
+      "human_minus_official": {
+        "mean": 0.42738743115275646,
+        "ci95": [
+          0.40656300196611106,
+          0.4493705668314997
+        ],
+        "p_two_sided": 9.999000099990002e-05,
+        "queries": 1179
+      },
+      "clean_queries_human": 0.9591830008953773,
+      "clean_queries_official": 0.5343557767976516
+    }
+  },
+  "paired_human_comparisons": {
+    "bm25_minus_e5": {
+      "mean": -0.23545307532547374,
+      "ci95": [
+        -0.2542487480287481,
+        -0.2175551275903364
+      ],
+      "p_two_sided": 9.999000099990002e-05,
+      "queries": 1179
+    },
+    "bge_minus_e5": {
+      "mean": -0.051395122042689194,
+      "ci95": [
+        -0.06099570907169194,
+        -0.04203415372500709
+      ],
+      "p_two_sided": 9.999000099990002e-05,
+      "queries": 1179
+    },
+    "rrf3_minus_e5": {
+      "mean": -0.025504426146636193,
+      "ci95": [
+        -0.032413001177822705,
+        -0.018711674437559424
+      ],
+      "p_two_sided": 9.999000099990002e-05,
+      "queries": 1179
+    },
+    "e5-rerank_minus_e5": {
+      "mean": 0.022446590184977095,
+      "ci95": [
+        0.016573485905746702,
+        0.02868232463615089
+      ],
+      "p_two_sided": 9.999000099990002e-05,
+      "queries": 1179
+    }
+  },
+  "judge_threshold": -0.21871782839298248,
+  "judge_recorded_training_results": {
+    "model_name": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "finetuned": true,
+    "model_path": "cross_encoder_finetuned_v2",
+    "threshold": -0.21871782839298248,
+    "threshold_source": "validation_set",
+    "validation_metrics": {
+      "auc": 0.9082418896613459,
+      "f1": 0.8689373724690002,
+      "accuracy": 0.8369777430691137
+    },
+    "test_metrics": {
+      "auc": 0.9069575133368537,
+      "f1": 0.875417806137952,
+      "accuracy": 0.8360655737704918
+    },
+    "base_model_val_auc": 0.8647677747789919,
+    "improvement": 0.043474114882353976
+  },
+  "judge_rescored_split_metrics": {
+    "train": {
+      "queries": 825,
+      "n": 23543,
+      "precision": 0.8984430518767362,
+      "recall": 0.9680495614645691,
+      "f1": 0.9319484000670128,
+      "accuracy": 0.9137323195854394,
+      "auc": 0.971996115621208,
+      "kappa": 0.814594162727157,
+      "confusion_matrix": [
+        [
+          7605,
+          1572
+        ],
+        [
+          459,
+          13907
+        ]
+      ]
+    },
+    "validation": {
+      "queries": 177,
+      "n": 5122,
+      "precision": 0.82869122491764,
+      "recall": 0.9116968698517298,
+      "f1": 0.8682146219014747,
+      "accuracy": 0.8360015618898867,
+      "auc": 0.9082579141764859,
+      "kappa": 0.6524624031635802,
+      "confusion_matrix": [
+        [
+          1515,
+          572
+        ],
+        [
+          268,
+          2767
+        ]
+      ]
+    },
+    "test": {
+      "queries": 177,
+      "n": 5002,
+      "precision": 0.8506493506493507,
+      "recall": 0.9017521902377973,
+      "f1": 0.8754556500607534,
+      "accuracy": 0.8360655737704918,
+      "auc": 0.9069675618886842,
+      "kappa": 0.6362850215020354,
+      "confusion_matrix": [
+        [
+          1300,
+          506
+        ],
+        [
+          314,
+          2882
+        ]
+      ]
+    }
+  },
+  "judge_rerank_heldout": {
+    "queries": 177,
+    "official": 0.5118190233637863,
+    "human": 0.93843663302468,
+    "judge": 0.9887005649717514,
+    "setting": "Re-ranking all candidates in the answer-assisted manual pool on held-out queries; not first-stage retrieval"
+  },
+  "judge_valid_text_and_labels": {
+    "n": 33633,
+    "precision": 0.8817296419875552,
+    "recall": 0.9495484121588812,
+    "f1": 0.9143832413728608,
+    "accuracy": 0.8911188416138911,
+    "auc": 0.955331704366212,
+    "kappa": 0.7654389948387837,
+    "confusion_matrix": [
+      [
+        10416,
+        2623
+      ],
+      [
+        1039,
+        19555
+      ]
+    ]
+  },
+  "judge_artifact_reconciliation": {
+    "old_summary_positive": 22193,
+    "stored_positive": 22256,
+    "regenerated_positive": 22206,
+    "stored_only_pairs": 50,
+    "derived_only_pairs": 0
+  },
+  "provenance": {
+    "phd2/new_data/100 вопросов_M.json": {
+      "size": 1499919,
+      "crc32": "26615ae5"
+    },
+    "phd2/new_data/new_labels4.json": {
+      "size": 583661,
+      "crc32": "9cbce2f2"
+    },
+    "phd2/new_data/next10_вопросы.json": {
+      "size": 1743675,
+      "crc32": "401af7bb"
+    },
+    "phd2/new_data/next11_вопросы.json": {
+      "size": 800144,
+      "crc32": "f5a92e2e"
+    },
+    "phd2/new_data/next1_вопросы.json": {
+      "size": 1665881,
+      "crc32": "5baf795d"
+    },
+    "phd2/new_data/next2_вопросы.json": {
+      "size": 1541045,
+      "crc32": "50ccbda9"
+    },
+    "phd2/new_data/next3_вопросы.json": {
+      "size": 1686296,
+      "crc32": "e5797369"
+    },
+    "phd2/new_data/next4_вопросы.json": {
+      "size": 1635321,
+      "crc32": "77e68103"
+    },
+    "phd2/new_data/next5_вопросы.json": {
+      "size": 1832437,
+      "crc32": "aa61f043"
+    },
+    "phd2/new_data/next6_вопросы.json": {
+      "size": 1644181,
+      "crc32": "26ffb729"
+    },
+    "phd2/new_data/next7_вопросы.json": {
+      "size": 1568462,
+      "crc32": "22bad0fd"
+    },
+    "phd2/new_data/next8_вопросы.json": {
+      "size": 1583578,
+      "crc32": "0c951672"
+    },
+    "phd2/new_data/next9_вопросы.json": {
+      "size": 1610568,
+      "crc32": "7a2dc417"
+    },
+    "phd2/msmarco/qrels/dev.tsv": {
+      "size": 135889,
+      "crc32": "fe55a486"
+    },
+    "phd2/output_fixed/judge_scores_raw.json": {
+      "size": 1047302,
+      "crc32": "90a9a411"
+    },
+    "phd2/output_fixed/judge_config.json": {
+      "size": 532,
+      "crc32": "fb265787"
+    }
+  }
+}
