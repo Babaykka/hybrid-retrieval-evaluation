@@ -38,10 +38,13 @@ chart data.
 - The historical notebook and the research-data release: the original pipeline,
   saved runs/scores, project judgments, annotation categories, and derived arrays.
 
-Large project results are GitHub Release assets. `RELEASE_ARTIFACTS.json` maps
-the additional arrays back to their repository paths; the research-data release
-has its own file/part manifests and restoration instructions. Publication updates
-and Telegram downloads are indexed in [the project channel](https://t.me/zzakazzy).
+This GitHub repository preserves the development sources, documents, and retained
+result files. The full research-data archive and additional large arrays are
+distributed through [the project Telegram channel](https://t.me/zzakazzy).
+`RELEASE_ARTIFACTS.json` maps the additional arrays back to their repository paths.
+The Telegram archive index supplies the complete part manifest and restoration
+instructions; the archive is complete only after every listed part and manifest
+has been posted. The large research-data archive is not hosted in GitHub.
 
 ## Interpretation of the results
 
@@ -63,7 +66,7 @@ from [the official download page](https://microsoft.github.io/msmarco/Datasets).
 Their [source terms](https://microsoft.github.io/msmarco/Notice.html) continue to
 apply. Raw copied text is replaced by upstream acquisition/hydration instructions
 where stated in the research-data manifest. Project-generated numerical results
-remain part of the release; their size is not a reason for omission.
+remain part of the full Telegram archive; their size is not a reason for omission.
 
 `SOURCE_COVERAGE.json` records the staged source decisions. Runtime environments,
 Office profiles, operating-system metadata, reproducible compilation auxiliaries,

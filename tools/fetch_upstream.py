@@ -12,11 +12,22 @@ import json
 import os
 import tarfile
 import urllib.request
+import zipfile
 from pathlib import Path
 
 BASE_URL = "https://msmarco.z22.web.core.windows.net/msmarcoranking/"
 DEV_SMALL_SHA256 = "ddc607dbe7b748d7168e8675a242f0811d47febaa2e69d3af09d7ab249c68d7e"
 DEV_SMALL_PAIR_SHA256 = "59c979e9e648a775f15559113907a416884bff67863a22e8b1a4c109a21b07aa"
+BEIR_URL = "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/msmarco.zip"
+BEIR_MD5 = "444067daf65d982533ea17ebd59501e4"
+BEIR_BYTES = 1082258632
+BEIR_MEMBERS = {
+    "corpus.jsonl": {"size": 3568655380, "crc32": "69c3dbae"},
+    "queries.jsonl": {"size": 40420611, "crc32": "fc79aeda"},
+    "qrels/dev.tsv": {"size": 135889, "crc32": "fe55a486"},
+    "qrels/test.tsv": {"size": 168598, "crc32": "77a34bda"},
+    "qrels/train.tsv": {"size": 9523856, "crc32": "01ca36e4"},
+}
 
 
 class NonSeekingReader(io.RawIOBase):
@@ -85,7 +96,26 @@ def fetch(kind, destination, split="dev"):
     temporary = destination.with_name(destination.name + ".partial")
     if temporary.exists():
         raise FileExistsError("remove or move the explicitly identified previous partial download first")
-    if kind == "qrels":
+    if kind == "beir":
+        url = BEIR_URL
+        md5, sha, count = hashlib.md5(), hashlib.sha256(), 0
+        with urllib.request.urlopen(url, timeout=120) as response, temporary.open("xb") as output:
+            while True:
+                block = response.read(1024 * 1024)
+                if not block:
+                    break
+                count += len(block)
+                if count > BEIR_BYTES:
+                    raise ValueError("BEIR archive exceeds pinned version size")
+                md5.update(block)
+                sha.update(block)
+                output.write(block)
+        if count != BEIR_BYTES or md5.hexdigest() != BEIR_MD5:
+            raise ValueError("BEIR package does not match the publisher's pinned MD5/size; do not extract")
+        result = {"size": count, "md5": md5.hexdigest(), "sha256": sha.hexdigest(),
+                  "format": "original BEIR MSMARCO combined ZIP",
+                  "provider_card": "https://huggingface.co/datasets/BeIR/msmarco/blob/main/README.md"}
+    elif kind == "qrels":
         url = BASE_URL + "qrels.dev.small.tsv"
         with urllib.request.urlopen(url, timeout=60) as response:
             raw = response.read(2 * 1024 * 1024)
@@ -107,19 +137,84 @@ def fetch(kind, destination, split="dev"):
         with urllib.request.urlopen(url, timeout=120) as response, temporary.open("xb") as output:
             result = convert_tar_tsv(response, member, output, corpus=(kind == "corpus"))
     os.replace(temporary, destination)
-    receipt = {"source": url, "member": member if kind != "qrels" else None, **result,
+    receipt = {"source": url, "member": member if kind in {"queries", "corpus"} else None, **result,
                "dataset_terms": "https://microsoft.github.io/msmarco/Notice.html"}
     destination.with_name(destination.name + ".source.json").write_text(json.dumps(receipt, indent=2) + "\n")
     return receipt
 
 
+def extract_beir(archive_path, output_dir, expected_manifest=None,
+                 expected_md5=BEIR_MD5, expected_members=None):
+    """Extract only the five pinned source files, with no path traversal."""
+    archive_path, output_dir = Path(archive_path), Path(output_dir)
+    if output_dir.exists():
+        raise FileExistsError("use a new output directory")
+    members = BEIR_MEMBERS if expected_members is None else expected_members
+    md5 = hashlib.md5()
+    with archive_path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            md5.update(block)
+    if md5.hexdigest() != expected_md5:
+        raise ValueError("BEIR package MD5 mismatch")
+    expected_sha = {}
+    if expected_manifest:
+        manifest = json.loads(Path(expected_manifest).read_text())
+        for row in manifest["excluded"]:
+            relative = row["path"].split("/msmarco/", 1)[-1]
+            expected_sha[relative] = row.get("sha256_uncompressed")
+        if set(expected_sha) != set(members) or not all(expected_sha.values()):
+            raise ValueError("expected manifest must contain all five original source SHA256s")
+    receipt = {"package_md5": md5.hexdigest(), "files": [], "whole_project_restore_verified": False}
+    with zipfile.ZipFile(archive_path) as source:
+        selected = {}
+        for relative, expected in members.items():
+            match = [i for i in source.infolist() if i.filename == "msmarco/" + relative]
+            if len(match) != 1:
+                raise ValueError("missing/duplicate pinned BEIR source member")
+            info = match[0]
+            if info.is_dir() or info.flag_bits & 1 or info.file_size != expected["size"] or "%08x" % info.CRC != expected["crc32"]:
+                raise ValueError("BEIR member differs from pinned source packaging")
+            selected[relative] = info
+        output_dir.mkdir(parents=True)
+        for relative, info in selected.items():
+            # The output path comes exclusively from the fixed member table.
+            target = output_dir / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            partial = target.with_name(target.name + ".partial")
+            sha, total = hashlib.sha256(), 0
+            with source.open(info) as reader, partial.open("xb") as output:
+                for block in iter(lambda: reader.read(1024 * 1024), b""):
+                    sha.update(block)
+                    output.write(block)
+                    total += len(block)
+            if total != info.file_size or expected_sha and sha.hexdigest() != expected_sha[relative]:
+                raise ValueError("restored raw source SHA256/size mismatch")
+            os.replace(partial, target)
+            receipt["files"].append({"path": relative, "size": total, "sha256": sha.hexdigest(),
+                                     "crc32": "%08x" % info.CRC,
+                                     "historical_source_sha256_verified": bool(expected_sha)})
+    (output_dir / "source-restoration.json").write_text(json.dumps(receipt, indent=2) + "\n")
+    return receipt
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("kind", choices=["qrels", "queries", "corpus"])
-    parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("kind", choices=["beir", "extract-beir", "qrels", "queries", "corpus"])
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--archive", type=Path)
+    parser.add_argument("--output-dir", type=Path)
+    parser.add_argument("--expected-manifest", type=Path)
     parser.add_argument("--split", choices=["train", "dev", "eval"], default="dev")
     args = parser.parse_args()
-    print(json.dumps(fetch(args.kind, args.output, args.split)))
+    if args.kind == "extract-beir":
+        if args.archive is None or args.output_dir is None:
+            parser.error("extract-beir requires --archive and --output-dir")
+        result = extract_beir(args.archive, args.output_dir, args.expected_manifest)
+    else:
+        if args.output is None:
+            parser.error("download requires --output")
+        result = fetch(args.kind, args.output, args.split)
+    print(json.dumps(result))
 
 
 if __name__ == "__main__":
